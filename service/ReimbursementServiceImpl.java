@@ -46,7 +46,7 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 
 	@Override
 	public List<ReimbursementPojo> viewAllRequests() throws ApplicationException {
-//		logger.info("Entered viewAllRequests() in service.");
+		LOG.info("Entered viewAllRequests() in service.");
 		List<ReimbursementPojo> viewAllRequestsList = this.reimbursementDao.viewAllRequests();
 		LOG.info("Exited viewAllRequests() in service.");
 		return viewAllRequestsList;
