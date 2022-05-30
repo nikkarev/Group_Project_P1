@@ -23,33 +23,33 @@ public class EmployeeServiceImpl implements EmployeeService{
 	// NEED TO BE REVISE
 	@Override
 	public EmployeePojo login(EmployeePojo employeePojo) throws ApplicationException {
-		logger.info("Entered login() in service.");
+		LOG.info("Entered login() in service.");
 		EmployeePojo returnEmployeePojo = this.employeeDao.login(employeePojo);
-		logger.info("Exited login() in service."); 
+		LOG.info("Exited login() in service."); 
 		return returnEmployeePojo;
 	}
 
 	@Override
 	public EmployeePojo viewInfo(int employeeId) throws ApplicationException {
-		logger.info("Entered viewInfo() in service.");
+		LOG.info("Entered viewInfo() in service.");
 		EmployeePojo returnEmployeePojo = this.employeeDao.viewInfo(employeeId);
-		logger.info("Exited viewInfo() in service.");
+		LOG.info("Exited viewInfo() in service.");
 		return returnEmployeePojo;
 	}
 
 	@Override
 	public EmployeePojo updateInfo(EmployeePojo employeePojo) throws ApplicationException {
-		logger.info("Entered updateInfo() in service.");		
+		LOG.info("Entered updateInfo() in service.");		
 		EmployeePojo returnEmployeePojo = this.employeeDao.updateInfo(employeePojo);
-		logger.info("Exited updateInfo() in service.");
+		LOG.info("Exited updateInfo() in service.");
 		return returnEmployeePojo;
 	}
 
 	@Override
 	public List<EmployeePojo> getAllEmployees() throws ApplicationException {
-		logger.info("Entered getAllEmployees() in service.");	
+		LOG.info("Entered getAllEmployees() in service.");	
 		List<EmployeePojo> returnAllEmployee = this.employeeDao.getAllEmployees();
-		logger.info("Exited getAllEmployees() in service.");
+		LOG.info("Exited getAllEmployees() in service.");
 		return null;
 	}
 
