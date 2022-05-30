@@ -2,6 +2,8 @@ package dao;
 
 import java.util.List;
 
+import exception.ApplicationException;
+
 public interface EmployeeDao {
 	//employee or manager login
 	EmployeePojo login(EmployeePojo employeePojo) throws ApplicationException;
