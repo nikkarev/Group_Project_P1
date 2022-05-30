@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+
+import exception.ApplicationException;
 
 public class EmployeeDaoImpl implements EmployeeDao{
 
@@ -54,9 +57,18 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		try {
 			Connection conn = DBUtil.makeConnection();
 			stmt = conn.createStatement();
-			String query = 
+			String query = "SELECT * FROM employee WHERE manager_type=false";
+			ResultSet rs = = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				EmployeePojo employeePojo = new EmployeePojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBoolean(8));
+				allEmployees.add(employeePojo);
+			}
+		}catch(SQLException e) {
+			throw new ApplicationException(e.getMessage());
 		}
 		return allEmployees;
 	}
+
 
 }
