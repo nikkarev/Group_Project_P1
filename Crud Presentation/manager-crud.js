@@ -32,11 +32,8 @@ fetch("http://localhost:7474/employees")
                             <td>${employee.userName}</td>
                             <td>${employee.password}</td>
                             <td>${employee.managerType}</td>
-                        //     <td><button 
-                        //             type="button" 
-                        //             class="btn btn-danger"
-                        //             onclick="deleteBook(${book.id})">Remove</button></td>
-                        //   </tr>`;
+                
+                           </tr>`;
     }
     employeeTableData += `</tbody></table>`;
     document.getElementById("content").innerHTML = employeeTableData;
