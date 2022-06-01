@@ -1,83 +1,85 @@
 package model;
 
+// updated reimbursement pojo - amount added
 public class ReimbursementPojo {
 
 	private int reimbursementId;
 	private int employeeId;
 	private int managerId;
 	private String status;
+	private double amount;
 	private String reason;
-	
 	
 	public ReimbursementPojo() {
 		super();
 	}
 
-
-	public ReimbursementPojo(int reimbursementId, int employeeId, int managerId, String status, String reason) {
+	public ReimbursementPojo(int reimbursementId, int employeeId, int managerId, String status, double amount,
+			String reason) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.employeeId = employeeId;
 		this.managerId = managerId;
 		this.status = status;
+		this.amount = amount;
 		this.reason = reason;
 	}
-
 
 	public int getReimbursementId() {
 		return reimbursementId;
 	}
 
-
 	public void setReimbursementId(int reimbursementId) {
 		this.reimbursementId = reimbursementId;
 	}
-
 
 	public int getEmployeeId() {
 		return employeeId;
 	}
 
-
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
-
 
 	public int getManagerId() {
 		return managerId;
 	}
 
-
 	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
-
 
 	public String getStatus() {
 		return status;
 	}
 
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 
 	public String getReason() {
 		return reason;
 	}
 
-
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + employeeId;
 		result = prime * result + managerId;
 		result = prime * result + ((reason == null) ? 0 : reason.hashCode());
@@ -85,7 +87,6 @@ public class ReimbursementPojo {
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -96,6 +97,8 @@ public class ReimbursementPojo {
 		if (getClass() != obj.getClass())
 			return false;
 		ReimbursementPojo other = (ReimbursementPojo) obj;
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
+			return false;
 		if (employeeId != other.employeeId)
 			return false;
 		if (managerId != other.managerId)
@@ -118,7 +121,7 @@ public class ReimbursementPojo {
 	@Override
 	public String toString() {
 		return "ReimbursementPojo [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", managerId="
-				+ managerId + ", status=" + status + ", reason=" + reason + "]";
+				+ managerId + ", status=" + status + ", amount=" + amount + ", reason=" + reason + "]";
 	}
 	
 }

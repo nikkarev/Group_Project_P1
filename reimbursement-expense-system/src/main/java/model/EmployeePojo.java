@@ -1,7 +1,7 @@
 package model;
 
 public class EmployeePojo {
-
+	
 	private int employeeId;
 	private int managerId;
 	private String firstName;
@@ -157,4 +157,5 @@ public class EmployeePojo {
 				+ ", managerType=" + managerType + "]";
 	}
 	
+
 }
