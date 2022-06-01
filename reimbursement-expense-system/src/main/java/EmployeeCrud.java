@@ -11,7 +11,7 @@ public class EmployeeCrud {
 		
 			EmployeeService employeeService = new EmployeeServiceImpl();
 			
-			Javalin server = Javalin.create();
+			Javalin server = Javalin.create((config) -> config.enableCorsForAllOrigins());
 			server.start(7474);
 			
 			
