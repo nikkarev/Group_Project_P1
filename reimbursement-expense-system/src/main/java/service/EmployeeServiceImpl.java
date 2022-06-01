@@ -47,9 +47,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<EmployeePojo> getAllEmployees() throws ApplicationException {
 		LOG.info("Entered getAllEmployees() in service.");	
-		List<EmployeePojo> returnAllEmployee = this.employeeDao.getAllEmployees();
+		List<EmployeePojo> allEmployees = this.employeeDao.getAllEmployees();
 		LOG.info("Exited getAllEmployees() in service.");
-		return null;
+		return allEmployees;
 	}
 
 }
