@@ -19,8 +19,29 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	private static final Logger LOG = LogManager.getLogger(ReimbursementServiceImpl.class);
 
 	public EmployeePojo login(EmployeePojo employeePojo) throws ApplicationException {
+		
+		Connection conn;
+		try {
+			conn = DBUtil.makeConnection();
+			Statement stmt = conn.createStatement();
+			String query = "SELECT * FROM employee WHERE email=" + "'" + employeePojo.getEmail() + "'" + "and password="
+					+ "'" + employeePojo.getPassword() + "'";
+			ResultSet rs = stmt.executeQuery(query);
+			if (rs.next()) {
+				employeePojo.setEmail(rs.getString(5));
+				employeePojo.setPassword(rs.getString(7));
+				employeePojo.setEmployeeId(rs.getInt(1));
+				employeePojo.setFirstName(rs.getString(3));
+				employeePojo.setLastName(rs.getString(4));
+				employeePojo.setUserName(rs.getString(6));
+				employeePojo.setManagerId(rs.getInt(2));
+				employeePojo.setManagerType(rs.getBoolean(8));
+			}
+		} catch (SQLException e) {
+			throw new ApplicationException(null);
+		}
+		return employeePojo;
 
-		return null;
 	}
 
 	public EmployeePojo viewInfo(int employeeId) throws ApplicationException {
