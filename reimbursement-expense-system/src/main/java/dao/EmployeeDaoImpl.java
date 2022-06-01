@@ -34,7 +34,8 @@ public class EmployeeDaoImpl implements EmployeeDao{
 			ResultSet rs = stmt.executeQuery(query);
 
 			if(rs.next()) {
-				employeePojo = new EmployeePojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(6), rs.getString(7), rs.getBoolean(8));
+					employeePojo = new EmployeePojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), 
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getBoolean(8));
 			}
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
