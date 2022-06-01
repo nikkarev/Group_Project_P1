@@ -3,6 +3,7 @@ function printData(){
     document.write("Data printed on the document...")
     console.log("data printed on the console...")
 }
+<<<<<<< Updated upstream
 function getAllEmployees(){
 fetch("http://localhost:7474/employees")
 .then(response => response.json())
@@ -41,4 +42,14 @@ fetch("http://localhost:7474/employees")
 .catch(error => console.log(error));
 
 // continues with code here if we had any
+=======
+
+function deleteReimbursementRequest(reimbursementId) {
+    console.log(reimbursementId);
+    fetch("http://localhost:7474/ers/" + reimbursementId, {method: 'delete'})
+        .then(reponse => {
+            console.log(reponse);
+            viewAllRequests();
+        })
+>>>>>>> Stashed changes
 }

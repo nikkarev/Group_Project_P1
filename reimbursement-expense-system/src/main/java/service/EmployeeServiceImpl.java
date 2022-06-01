@@ -49,7 +49,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		LOG.info("Entered getAllEmployees() in service.");	
 		List<EmployeePojo> allEmployees = this.employeeDao.getAllEmployees();
 		LOG.info("Exited getAllEmployees() in service.");
+<<<<<<< Updated upstream
 		return allEmployees;
+=======
+		return returnAllEmployee;
+>>>>>>> Stashed changes
 	}
 
 }
