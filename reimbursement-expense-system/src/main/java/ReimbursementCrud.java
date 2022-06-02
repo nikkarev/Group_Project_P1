@@ -8,7 +8,7 @@ import service.ReimbursementServiceImpl;
 public class ReimbursementCrud {
 	
 	public static void main(String[] args) {
-		
+	
 		ReimbursementService reimbursementService = new ReimbursementServiceImpl();
 		
 		Javalin server = Javalin.create((config) -> config.enableCorsForAllOrigins()); // this line creates the Jetty Server

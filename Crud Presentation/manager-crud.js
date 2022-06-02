@@ -41,10 +41,9 @@ fetch("http://localhost:7474/employees")
 .catch(error => console.log(error));
 }
 
-
-function viewAllRequests()  {
-    fetch ("http://localhost:7474/reimbursement")
-    .then(response, response.json())
+function viewAllRequests(){
+    fetch("http://localhost:7474/reimbursement")
+    .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
         let reimbursementTableData = ` <table class = "table table-striped">
