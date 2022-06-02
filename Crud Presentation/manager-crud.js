@@ -3,6 +3,7 @@ function printData(){
     document.write("Data printed on the document...")
     console.log("data printed on the console...")
 }
+
 function getAllEmployees(){
 fetch("http://localhost:7474/employees")
 .then(response => response.json())
@@ -32,13 +33,45 @@ fetch("http://localhost:7474/employees")
                             <td>${employee.userName}</td>
                             <td>${employee.password}</td>
                             <td>${employee.managerType}</td>
-                
                            </tr>`;
     }
     employeeTableData += `</tbody></table>`;
     document.getElementById("content").innerHTML = employeeTableData;
 })
 .catch(error => console.log(error));
+}
 
-// continues with code here if we had any
+
+function viewAllRequests()  {
+    fetch ("http://localhost:7474/reimbursement")
+    .then(response, response.json())
+    .then(responseJson => {
+        console.log(responseJson)
+        let reimbursementTableData = ` <table class = "table table-striped">
+                                    <thead> 
+                                    <tr>
+                                        <th>Reimbursemend Id</th>
+                                        <th>Employee Id</th>
+                                        <th>Manager Id</th>
+                                        <th>Status</th>
+                                        <th>Amount</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    `;
+        for (let reimbursement of responseJson) {
+            reimbursementTableData += ` <tr>
+                                    <td>${reimbursement.reimbursementId}</td>
+                                    <td>${reimbursement.employeeId}</td>
+                                    <td>${reimbursement.managerId}</td>
+                                    <td>${reimbursement.status}</td>
+                                    <td>${reimbursement.amount}</td>
+                                    <td>${reimbursement.reason}</td>
+                                    </tr>`;
+        }
+        reimbursementTableData += `</tbody></table>`;
+        document.getElementById("viewAllRequestContent").innerHTML = reimbursementTableData;
+    })
+    .catch(error => console.log(error));
 }

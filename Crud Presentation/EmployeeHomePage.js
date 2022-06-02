@@ -23,7 +23,7 @@ function printData(){
                                 </tbody>
                             </table> `;
 
-    fetch("http://localhost:7474/books")
+    fetch("http://localhost:7474/ers")
     .then(response => response.json())
     .then(responseJson => {
         
