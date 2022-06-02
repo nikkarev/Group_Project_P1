@@ -42,7 +42,7 @@ function printData(){
 
 function displayReimbursementForm(){
     let reimbursementForm = `<div class="container">
-                       <form>
+                       <form id="someId">
                            <div class="mb-3 mt-3">
                                <label for="eID" class="form-label">Employee ID:</label>
                                <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
@@ -72,7 +72,8 @@ function submitRequest(){
 
    // construct a java script object whose properties match the bookpojo object's properties
        // of the back end application
-   let submitRequest = {
+   
+       let submitRequest = {
        reimbursementId: 0,
        employeeId: document.getElementById("eID").value,
        managerId: document.getElementById("mID").value,
