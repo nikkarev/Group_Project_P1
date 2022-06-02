@@ -23,10 +23,10 @@ function auth(event) {
         alert("Invalid information");
         return;
     } else if(jsonResponse.employeeId != 0 && jsonResponse.managerType == true){
-        window.location.replace("/Crud%20Presentation/ManagerHome.html");
+        window.location.replace("/ManagerHome.html");
     }
       else{
-        window.location.replace("/Crud%20Presentation/EmployeeHomePage.html");
+        window.location.replace("/EmployeeHomePage.html");
     }
 });
 
