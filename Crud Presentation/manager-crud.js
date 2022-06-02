@@ -50,7 +50,7 @@ function viewAllRequests()  {
         let reimbursementTableData = ` <table class = "table table-striped">
                                     <thead> 
                                     <tr>
-                                        <th>Reimbursemend Id</th>
+                                        <th>Reimbursement Id</th>
                                         <th>Employee Id</th>
                                         <th>Manager Id</th>
                                         <th>Status</th>
