@@ -8,8 +8,7 @@ import service.ReimbursementServiceImpl;
 public class ReimbursementCrud {
 	
 	public static void main(String[] args) {
-		
-<<<<<<< HEAD
+	
 		ReimbursementService reimbursementService = new ReimbursementServiceImpl();
 		
 		Javalin server = Javalin.create((config) -> config.enableCorsForAllOrigins()); // this line creates the Jetty Server
@@ -31,8 +30,6 @@ public class ReimbursementCrud {
 			
 			ctx.json(returnBookPojo);
 		});
-=======
->>>>>>> a467545 (viewAllReimbursement now functional)
 	}
 
 }
