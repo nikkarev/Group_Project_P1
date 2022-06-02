@@ -46,7 +46,6 @@ function viewAllRequests(){
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
-<<<<<<< HEAD
         let reimbursementTableData = ` <table class = "table table-striped">
                                     <thead> 
                                     <tr>
@@ -69,29 +68,6 @@ function viewAllRequests(){
                                     <td>${reimbursement.amount}</td>
                                     <td>${reimbursement.reason}</td>
                                     </tr>`;
-=======
-        let reimbursementTableData = `<table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Reimbursement Id</th>
-                            <th>Employee Id</th>
-                            <th>Manager Id</th>
-                            <th>Status</th>
-                            <th>Amount</th>
-                            <th>Reason</th>
-                        </tr>
-                        </thead>
-                        <tbody>`;
-        for(let reimbursement of responseJson){
-            reimbursementTableData += `<tr>
-                                <td>${reimbursement.reimbursementId}</td>
-                                <td>${reimbursement.employeeId}</td>
-                                <td>${reimbursement.managerId}</td>
-                                <td>${reimbursement.status}</td>
-                                <td>${reimbursement.amount}</td>
-                                <td>${reimbursement.reason}</td>
-                               </tr>`;
->>>>>>> a467545 (viewAllReimbursement now functional)
         }
         reimbursementTableData += `</tbody></table>`;
         document.getElementById("viewAllRequestContent").innerHTML = reimbursementTableData;
