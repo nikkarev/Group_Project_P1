@@ -417,6 +417,52 @@
 2022-06-01 23:46:01,222 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered submitRequest() in Dao.
 2022-06-01 23:46:02,967 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited submitRequest() in Dao.
 2022-06-01 23:46:02,967 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited submitRequest() in service.
+<<<<<<< HEAD
+2022-06-01 23:52:10,038 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered login() in service.
+2022-06-01 23:52:11,795 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited login() in service.
+2022-06-01 23:52:29,575 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered submitRequest() in service.
+2022-06-01 23:52:29,577 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered submitRequest() in Dao.
+2022-06-01 23:52:29,654 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited submitRequest() in Dao.
+2022-06-01 23:52:29,655 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited submitRequest() in service.
+2022-06-02 00:06:54,406 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] Entered getAllEmployees() in service.
+2022-06-02 00:06:54,431 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-18] Entered getAllEmployees() in Dao.
+2022-06-02 00:06:54,548 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-18] Exited getAllEmployees() in Dao.
+2022-06-02 00:06:54,549 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] Exited getAllEmployees() in service.
+2022-06-02 00:06:56,943 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered getAllEmployees() in service.
+2022-06-02 00:06:56,944 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered getAllEmployees() in Dao.
+2022-06-02 00:06:57,021 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited getAllEmployees() in Dao.
+2022-06-02 00:06:57,021 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited getAllEmployees() in service.
+2022-06-02 00:06:59,119 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Entered getAllEmployees() in service.
+2022-06-02 00:06:59,123 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Entered getAllEmployees() in Dao.
+2022-06-02 00:06:59,206 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Exited getAllEmployees() in Dao.
+2022-06-02 00:06:59,207 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Exited getAllEmployees() in service.
+2022-06-02 00:07:01,687 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in service.
+2022-06-02 00:07:01,689 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in Dao.
+2022-06-02 00:07:01,769 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in Dao.
+2022-06-02 00:07:01,769 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in service.
+2022-06-02 00:07:30,243 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Entered getAllEmployees() in service.
+2022-06-02 00:07:30,252 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Entered getAllEmployees() in Dao.
+2022-06-02 00:07:30,328 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Exited getAllEmployees() in Dao.
+2022-06-02 00:07:30,329 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Exited getAllEmployees() in service.
+2022-06-02 00:07:32,113 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in service.
+2022-06-02 00:07:32,116 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in Dao.
+2022-06-02 00:07:32,200 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in Dao.
+2022-06-02 00:07:32,201 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in service.
+2022-06-02 00:07:41,683 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewAllRequests() in service.
+2022-06-02 00:07:41,693 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewAllRequests() in Dao.
+2022-06-02 00:07:41,773 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewAllRequests() in Dao.
+2022-06-02 00:07:41,775 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewAllRequests() in service.
+2022-06-02 00:08:03,114 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in service.
+2022-06-02 00:08:03,115 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in Dao.
+2022-06-02 00:08:03,189 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in Dao.
+2022-06-02 00:08:03,192 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in service.
+2022-06-02 00:32:25,716 INFO s.EmployeeServiceImpl [JettyServerThreadPool-16] Entered login() in service.
+2022-06-02 00:32:25,812 INFO s.EmployeeServiceImpl [JettyServerThreadPool-16] Exited login() in service.
+2022-06-02 00:32:31,448 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in service.
+2022-06-02 00:32:31,450 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered getAllEmployees() in Dao.
+2022-06-02 00:32:31,531 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in Dao.
+2022-06-02 00:32:31,532 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited getAllEmployees() in service.
+=======
 =======
 2022-06-01 23:24:36,924 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewAllRequests() in service.
 2022-06-01 23:24:37,016 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewAllRequests() in Dao.
@@ -477,3 +523,4 @@
 2022-06-01 23:43:34,667 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited viewAllRequests() in Dao.
 2022-06-01 23:43:34,667 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited viewAllRequests() in service.
 >>>>>>> a467545 (viewAllReimbursement now functional)
+>>>>>>> d835525bd9de06dd19fc8a022c866bb6bbe2df3b

@@ -74,3 +74,19 @@ function viewAllRequests(){
     })
     .catch(error => console.log(error));
 }
+
+function displayReimbursementsForEmployee(){
+    let employeeIdForm = `<div class="container">
+                       <form>
+                            <div class="mb-3 mt-3">
+                               <label for="eID" class="form-label">Employee ID:</label>
+                               <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="">Submit</button>
+                        </form>
+                    </div>
+                           `;
+document.getElementById("content").innerHTML = employeeIdForm;
+        
+        
+        }
