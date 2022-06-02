@@ -42,6 +42,17 @@ public class EmployeeCrud {
 			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
 			ctx.json(allRequests);
 		});
+		
+		server.post("/reimbursement", (ctx) -> {
+			
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			
+			
+			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
+			
+			
+			ctx.json(returnBookPojo);
+		});
 
 	}
 
