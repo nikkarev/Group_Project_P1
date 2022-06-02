@@ -23,7 +23,7 @@ function printData(){
                                 </tbody>
                             </table> `;
 
-    fetch("http://localhost:7474/books")
+    fetch("http://localhost:7474/ers")
     .then(response => response.json())
     .then(responseJson => {
         
@@ -40,3 +40,49 @@ function printData(){
     
 }
 
+function displayReimbursementForm(){
+    let reimbursementForm = `<div class="container">
+                       <form>
+                           <div class="mb-3 mt-3">
+                               <label for="eID" class="form-label">Employee ID:</label>
+                               <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
+                           </div>
+                           <div class="mb-3 mt-3">
+                               <label for="mID" class="form-label">Manager ID:</label>
+                               <input type="text" class="form-control" id="mID" placeholder="Enter manager Id" name="managerId">
+                           </div>
+                           <div class="mb-3 mt-3">
+                               <label for="amount" class="form-label">Amount</label>
+                               <input type="text" class="form-control" id="amount" placeholder="Amount" name="amount">
+                           </div>
+                           <div class="mb-3 mt-3">
+                               <label for="reason" class="form-label">Reason:</label>
+                               <input type="text" class="form-control" id="reason" placeholder="Reason" name="Reason">
+                           </div>
+                           <button type="button" class="btn btn-primary" onclick="submitRequest()">Submit Request</button>
+                       </form>
+                   </div>
+                   `;
+   document.getElementById("content").innerHTML = reimbursementForm;
+
+
+}
+
+function submitRequest(){
+
+   // construct a java script object whose properties match the bookpojo object's properties
+       // of the back end application
+   let submitRequest = {
+       reimbursementId: 0,
+       employeeId: document.getElementById("eID").value,
+       managerId: document.getElementById("mID").value,
+       status: 0,
+       amount: document.getElementById("amount").value,
+       reason: document.getElementById("reason").value,
+   }
+   fetch("http://localhost:7474/reimbursement", {
+       method: 'post',
+       body: JSON.stringify(submitRequest) // converts JS object to JSON 
+   })
+
+}

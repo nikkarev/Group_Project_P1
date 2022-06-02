@@ -17,7 +17,7 @@
                 <div class="Logo">
                 <img src="RevatureLogo.png" alt="Logo"  width="140" height="80">
             </div>
-          <a class="navbar-brand" href="#">Employee Dashboard</a>
+          <a class="navbar-brand" href="">Employee Dashboard</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,7 +27,10 @@
                 <a class="nav-link" href="EmployeeProfile.html" onclick="">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="#" onclick="displayReimbursementForm()">Submit A Reimbusement</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Login.html">Logout</a>
               </li>
             </ul>
             <form class="d-flex">
@@ -37,110 +40,10 @@
           </div>
         </div>
       </nav>
-      
-      <h2>Welcome User</h2>
-      <p>Click the SUBMIT button to file your expense</p>
-      
-
-      <div class="container mt-3">
-        <div class="row">
-        <center>
-            <table id="expense table" class="table table-striped" style="width:100%" border="4">
-                <thead class= "table-dark">
-                    <tr>
-                        <td>New Reimbursement Request</td>
-                       
-                    </tr>
-                </thead>
-                <tbody>
-                  
-                    <tr>
-                        <th>Reimbursement Reason</th>
-                        <td><input type="text" name="Rreason" id="Rreason"></td>
-                    </tr>
-                    <tr>
-                        <th>Amount</th>
-                        <td><input type="text" name="Amount" id="Amount"></td>
-                    </tr>
-                    <tr id="btna">
-                        <td colspan="2"><input type="button" name="button" id="btn" value="Submit" onclick="AddRow()"></td>
-                    </tr>
-                </tbody>
-            
-            </table>
-    
-            <table border="4" id="show" style="width:100%">
-                <thead>
-                    <tr style="color:blue;">
-                        
-                        <th>Reason</th>
-                        <th>Amount</th>
-                        <th>Reimbursement ID</th>
-                        <th>Status</th>
-
-                    </tr>
-                </thead>
-            </table>
-        </center>
-        
-        <script>
-            
-            var list1 = [];
-            var list2 = [];
-           
-            
-            var n = 1;
-            var x = 0;
-            
-            function AddRow(){
-            
-                var AddRown = document.getElementById('show');
-                var NewRow = AddRown.insertRow(n);
-            
-                list1[x] = document.getElementById("Amount").value;
-                list2[x] = document.getElementById("Rreason").value;
-            
-            
-                var cel1 = NewRow.insertCell(0);
-                var cel2 = NewRow.insertCell(1);
-              
-            
-                cel1.innerHTML = list1[x];
-                cel2.innerHTML = list2[x];
-                
-              
-            
-                n++;
-                x++;
-            }
-            
-            </script>
-        </div>
+      <div id="content">
+        <h1>WELCOME HOME MASTER!</h1>
+        <img src="https://catvills.com/wp-content/uploads/2020/06/space-cat-names-a-850x425.jpg">
       </div>
-      
-      <!--Pagination-->
-      <nav aria-label ="Employee Pagination" class="my-5">
-      <ul class="pagination justify-content-center pagination-md">
-          
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        
-      </ul>
-      </nav>
-        <!-- <iframe src="#" style="height:100px;width:800px" title="Iframe Example"></iframe> -->
-
-       
-
-        <div id ="user input">
-
-
-        </div>
-
-       
-
 
     </body>
     

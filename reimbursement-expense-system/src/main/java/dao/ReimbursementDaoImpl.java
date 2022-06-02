@@ -25,7 +25,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		try {
 			Connection conn = DBUtil.makeConnection();
 			Statement stmt = conn.createStatement();
-			String query = "INSERT INTO reimbursement(employee_id, manager_id, status, ammount, reason) VALUES("+reimbursementPojo.getEmployeeId()+","
+			String query = "INSERT INTO reimbursement(employee_id, manager_id, status, amount, reason) VALUES("+reimbursementPojo.getEmployeeId()+","
 					+reimbursementPojo.getManagerId()+",'pending',"+reimbursementPojo.getAmount()+",'"+reimbursementPojo.getReason()+"') returning reimbursement_id";
 			ResultSet rs = stmt.executeQuery(query);
 			rs.next();
