@@ -18,6 +18,8 @@ public class EmployeeCrud {
 		Javalin server = Javalin.create((config) -> config.enableCorsForAllOrigins());
 		server.start(7474);
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		// GET ALL EMPLOYEES
 		server.get("/employees", (ctx) -> {
 			// here we contact service, service contacts dao
@@ -30,11 +32,32 @@ public class EmployeeCrud {
 			ctx.json(allEmployees);
 		});
 
+=======
+=======
+>>>>>>> Stashed changes
+		//GET ALL EMPLOYEES
+		server.get("/employees", (ctx)->{
+			// here we contact service, service contacts dao 
+			// allEmployees contains all the employees fetched from the DB
+			List<EmployeePojo> allEmployees = employeeService.getAllEmployees();
+
+			//now put the books in the response body, it has to converted to json format, 
+			// the ctx.json() will take care of the above 2 and sends back the response to the client/consumer
+			ctx.json(allEmployees);
+		});
+
+
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 		// endpoint for login validation
 		server.post("/employees/login", (ctx) -> {
 			EmployeePojo loginEmpPojo = ctx.bodyAsClass(EmployeePojo.class);
 			ctx.json(employeeService.login(loginEmpPojo));
 		});
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		
 		// post request to update employee info
 		server.post("/employees/profile", (ctx) -> {
@@ -44,11 +67,19 @@ public class EmployeeCrud {
 			ctx.json(returnEmpProfilePojo); 
 		});
 		
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
 		// get all reimbursement
 		server.get("/reimbursement", (ctx)->{
 			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
 			ctx.json(allRequests);
 		});
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		
 		// get reimbursement details for a user
 		server.get("/reimbursement/{bid}", (ctx)->{
@@ -81,9 +112,30 @@ public class EmployeeCrud {
 
 			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
 
+=======
+
+		server.post("/reimbursement", (ctx) -> {
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
+>>>>>>> Stashed changes
+=======
+
+		server.post("/reimbursement", (ctx) -> {
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
+>>>>>>> Stashed changes
 			ctx.json(returnBookPojo);
 		});
-
+		
+		// endpoint for viewing specific employee reimbursement request
+		server.get("/reimbursement/{employeeIdRequest}", (ctx) -> {
+			String employeeId = ctx.pathParam("employeeIdRequest"); // bid is the parameter name
+			int employeeIdInteger = Integer.parseInt(employeeId);
+//			ctx.result(reimbursementService.viewEmployeeRequests(employeeIdInteger) + "");
+			List<ReimbursementPojo> employeeRequestPojo = reimbursementService.viewEmployeeRequests(employeeIdInteger);
+			ctx.json(employeeRequestPojo);
+		});
+	
 	}
 
 }

@@ -8,7 +8,6 @@ function getAllEmployees(){
 fetch("http://localhost:7474/employees")
 .then(response => response.json())
 .then(responseJson => {
-    console.log(responseJson)
     let employeeTableData = `<table class="table table-striped">
                     <thead>
                     <tr>
@@ -82,11 +81,48 @@ function displayReimbursementsForEmployee(){
                                <label for="eID" class="form-label">Employee ID:</label>
                                <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
                             </div>
-                            <button type="button" class="btn btn-primary" onclick="">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="displayEmployeeRequest("eID")">Submit</button>
                         </form>
                     </div>
                            `;
-document.getElementById("content").innerHTML = employeeIdForm;
-        
-        
+    document.getElementById("content").innerHTML = employeeIdForm;
+}
+
+function displayEmployeeRequest(employeeIdRequest){
+    let empId = {
+        employeeId: document.getElementById("eID").value
+    }
+    fetch("http://localhost:7474/reimbursement/"+employeeIdRequest, {
+        method: "get",
+        body: JSON.stringify(empId)})
+    .then(response => response.json())
+    .then(responseJson => {
+
+        let requestTableData = ` <table class = "table table-striped">
+                                    <thead> 
+                                    <tr>
+                                        <th>Reimbursement Id</th>
+                                        <th>Employee Id</th>
+                                        <th>Manager Id</th>
+                                        <th>Status</th>
+                                        <th>Amount</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    `;
+        for (let employeeRequest of responseJson) {
+            requestTableData += ` <tr>
+                                    <td>${employeeRequest.reimbursemtextentId}</td>
+                                    <td>${employeeRequest.employeeId}</td>
+                                    <td>${employeeRequest.managerId}</td>
+                                    <td>${employeeRequest.status}</td>
+                                    <td>${employeeRequest.amount}</td>
+                                    <td>${employeeRequest.reason}</td>
+                                    </tr>`;
         }
+        requestTableData += `</tbody></table>`;
+        document.getElementById("content").innerHTML = requestTableData;
+    })
+    .catch(error => console.log(error));
+}
