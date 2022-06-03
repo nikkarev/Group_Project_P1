@@ -35,6 +35,31 @@ public class EmployeeCrud {
 			EmployeePojo loginEmpPojo = ctx.bodyAsClass(EmployeePojo.class);
 			ctx.json(employeeService.login(loginEmpPojo));
 		});
+<<<<<<< HEAD
+		
+		// post request to update employee info
+		server.post("/employees/profile", (ctx) -> {
+			
+			EmployeePojo updateEmpProfilePojo = ctx.bodyAsClass(EmployeePojo.class);
+			EmployeePojo returnEmpProfilePojo = employeeService.updateInfo(updateEmpProfilePojo);
+			ctx.json(returnEmpProfilePojo); 
+		});
+		
+		// get all reimbursement
+		server.get("/reimbursement", (ctx)->{
+			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
+			ctx.json(allRequests);
+		});
+		
+		// get reimbursement details for a user
+		server.get("/reimbursement/{bid}", (ctx)->{
+			
+			List<ReimbursementPojo> returnUserReimbursement =  reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("bid")));
+			ctx.json(returnUserReimbursement);
+		});
+		
+		
+=======
 
 
 
@@ -46,13 +71,23 @@ public class EmployeeCrud {
 			ctx.json(allRequests);
 		});
 
+>>>>>>> 5f3152b2467dea469ece2d3c57e468861ba78899
 		server.post("/reimbursement", (ctx) -> {
 
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+<<<<<<< HEAD
+			
+			
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.submitRequest(newReimbursementPojo);
+			
+			
+			ctx.json(returnReimbursementPojo);
+=======
 
 			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
 
 			ctx.json(returnBookPojo);
+>>>>>>> 5f3152b2467dea469ece2d3c57e468861ba78899
 		});
 
 	}
