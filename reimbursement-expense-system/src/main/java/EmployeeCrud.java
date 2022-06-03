@@ -30,6 +30,7 @@ public class EmployeeCrud {
 			ctx.json(allEmployees);
 		});
 
+
 		// endpoint for login validation
 		server.post("/employees/login", (ctx) -> {
 			EmployeePojo loginEmpPojo = ctx.bodyAsClass(EmployeePojo.class);
@@ -37,6 +38,14 @@ public class EmployeeCrud {
 		});
 
 
+		// post request to update employee info
+		server.post("/employees/profile", (ctx) -> {
+			EmployeePojo updateEmpProfilePojo = ctx.bodyAsClass(EmployeePojo.class);
+			EmployeePojo returnEmpProfilePojo = employeeService.updateInfo(updateEmpProfilePojo);
+			ctx.json(returnEmpProfilePojo); 
+		});
+		
+		
 
 		// **************************************************REIMBURSEMENT CRUD OPERATION***************************************************
 
@@ -46,15 +55,19 @@ public class EmployeeCrud {
 			ctx.json(allRequests);
 		});
 
+		// submit reimbursement request
 		server.post("/reimbursement", (ctx) -> {
-
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
-
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.submitRequest(newReimbursementPojo);
+			ctx.json(returnReimbursementPojo);
 			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
-
 			ctx.json(returnBookPojo);
 		});
 
+		// endpoint for viewing specific employee reimbursement request
+		server.get("/reimbursement/{eID}", (ctx) -> {
+			List<ReimbursementPojo> employeeRequestPojo = reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("eID")));
+			ctx.json(employeeRequestPojo);
+		});
 	}
-
 }
