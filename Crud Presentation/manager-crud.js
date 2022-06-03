@@ -82,11 +82,45 @@ function displayReimbursementsForEmployee(){
                                <label for="eID" class="form-label">Employee ID:</label>
                                <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
                             </div>
-                            <button type="button" class="btn btn-primary" onclick="">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="viewEmpData()">Submit</button>
                         </form>
                     </div>
                            `;
 document.getElementById("content").innerHTML = employeeIdForm;
         
         
+        }
+
+        function viewEmpData(){
+            fetch("http://localhost:7474/reimbursement")
+            .then(response => response.json())
+            .then(responseJson => {
+                console.log(responseJson)
+                let reimbursementTableDataEmp = ` <table class = "table table-striped">
+                                            <thead> 
+                                            <tr>
+                                                <th>Reimbursement Id</th>
+                                                <th>Employee Id</th>
+                                                <th>Manager Id</th>
+                                                <th>Status</th>
+                                                <th>Amount</th>
+                                                <th>Reason</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            `;
+                for (let reimbursement of responseJson) {
+                    reimbursementTableDataEmp += ` <tr>
+                                            <td>${reimbursement.reimbursementId}</td>
+                                            <td>${reimbursement.employeeId}</td>
+                                            <td>${reimbursement.managerId}</td>
+                                            <td>${reimbursement.status}</td>
+                                            <td>${reimbursement.amount}</td>
+                                            <td>${reimbursement.reason}</td>
+                                            </tr>`;
+                }
+                reimbursementTableDataEmp += `</tbody></table>`;
+                document.getElementById("content").innerHTML = reimbursementTableDataEmp;
+            })
+            .catch(error => console.log(error));
         }
