@@ -30,6 +30,13 @@ public class ReimbursementCrud {
 			
 			ctx.json(returnBookPojo);
 		});
+		
+		// get reimbursement details for a user
+				server.get("/reimbursement/{bid}", (ctx)->{
+					
+					List<ReimbursementPojo> returnUserReimbursement =  reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("bid")));
+					ctx.json(returnUserReimbursement);
+				});
 	}
 
 }

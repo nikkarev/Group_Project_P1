@@ -36,21 +36,37 @@ public class EmployeeCrud {
 			ctx.json(employeeService.login(loginEmpPojo));
 		});
 		
+		// post request to update employee info
+		server.post("/employees/profile", (ctx) -> {
+			
+			EmployeePojo updateEmpProfilePojo = ctx.bodyAsClass(EmployeePojo.class);
+			EmployeePojo returnEmpProfilePojo = employeeService.updateInfo(updateEmpProfilePojo);
+			ctx.json(returnEmpProfilePojo); 
+		});
+		
 		// get all reimbursement
 		server.get("/reimbursement", (ctx)->{
 			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
 			ctx.json(allRequests);
 		});
 		
+		// get reimbursement details for a user
+		server.get("/reimbursement/{bid}", (ctx)->{
+			
+			List<ReimbursementPojo> returnUserReimbursement =  reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("bid")));
+			ctx.json(returnUserReimbursement);
+		});
+		
+		
 		server.post("/reimbursement", (ctx) -> {
 			
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
 			
 			
-			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.submitRequest(newReimbursementPojo);
 			
 			
-			ctx.json(returnBookPojo);
+			ctx.json(returnReimbursementPojo);
 		});
 
 	}
