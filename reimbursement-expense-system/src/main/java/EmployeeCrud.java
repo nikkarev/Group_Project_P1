@@ -44,21 +44,8 @@ public class EmployeeCrud {
 			EmployeePojo returnEmpProfilePojo = employeeService.updateInfo(updateEmpProfilePojo);
 			ctx.json(returnEmpProfilePojo); 
 		});
-
-		// get all reimbursement
-		server.get("/reimbursement", (ctx)->{
-			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
-			ctx.json(allRequests);
-		});
-
-		// get reimbursement details for a user
-		server.get("/reimbursement/{bid}", (ctx)->{
-			List<ReimbursementPojo> returnUserReimbursement =  reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("bid")));
-			ctx.json(returnUserReimbursement);
-		});
-
-
-
+		
+		
 
 		// **************************************************REIMBURSEMENT CRUD OPERATION***************************************************
 
@@ -78,8 +65,8 @@ public class EmployeeCrud {
 		});
 
 		// endpoint for viewing specific employee reimbursement request
-		server.get("/reimbursement/{employeeIdRequest}", (ctx) -> {
-			List<ReimbursementPojo> employeeRequestPojo = reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("employeeIdRequest")));
+		server.get("/reimbursement/{eID}", (ctx) -> {
+			List<ReimbursementPojo> employeeRequestPojo = reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("eID")));
 			ctx.json(employeeRequestPojo);
 		});
 	}

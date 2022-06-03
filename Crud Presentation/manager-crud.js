@@ -81,20 +81,15 @@ function displayReimbursementsForEmployee(){
                                <label for="eID" class="form-label">Employee ID:</label>
                                <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
                             </div>
-                            <button type="button" class="btn btn-primary" onclick="displayEmployeeRequest("eID")">Submit</button>
+                            <button type="button" class="btn btn-primary" onclick="displayEmployeeRequest(document.getElementById('eID').value)">Submit</button>
                         </form>
                     </div>
                            `;
     document.getElementById("content").innerHTML = employeeIdForm;
 }
 
-function displayEmployeeRequest(employeeIdRequest){
-    let empId = {
-        employeeId: document.getElementById("eID").value
-    }
-    fetch("http://localhost:7474/reimbursement/"+employeeIdRequest, {
-        method: "get",
-        body: JSON.stringify(empId)})
+function displayEmployeeRequest(eID){
+    fetch("http://localhost:7474/reimbursement/"+eID)
     .then(response => response.json())
     .then(responseJson => {
 
@@ -103,7 +98,6 @@ function displayEmployeeRequest(employeeIdRequest){
                                     <tr>
                                         <th>Reimbursement Id</th>
                                         <th>Employee Id</th>
-                                        <th>Manager Id</th>
                                         <th>Status</th>
                                         <th>Amount</th>
                                         <th>Reason</th>
@@ -113,9 +107,8 @@ function displayEmployeeRequest(employeeIdRequest){
                                     `;
         for (let reimbursement of responseJson) {
             requestTableData += ` <tr>
-                                    <td>${reimbursement.reimbursemtextentId}</td>
+                                    <td>${reimbursement.reimbursementId}</td>
                                     <td>${reimbursement.employeeId}</td>
-                                    <td>${reimbursement.managerId}</td>
                                     <td>${reimbursement.status}</td>
                                     <td>${reimbursement.amount}</td>
                                     <td>${reimbursement.reason}</td>
