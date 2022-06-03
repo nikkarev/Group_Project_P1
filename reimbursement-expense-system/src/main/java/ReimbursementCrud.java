@@ -20,16 +20,7 @@ public class ReimbursementCrud {
 		});
 		
 		
-		server.post("/reimbursement", (ctx) -> {
-			
-			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
-			
-			
-			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
-			
-			
-			ctx.json(returnBookPojo);
-		});
+
 		
 		// get reimbursement details for a user
 				server.get("/reimbursement/{bid}", (ctx)->{
