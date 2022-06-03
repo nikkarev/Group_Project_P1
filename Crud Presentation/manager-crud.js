@@ -111,14 +111,14 @@ function displayEmployeeRequest(employeeIdRequest){
                                     </thead>
                                     <tbody>
                                     `;
-        for (let employeeRequest of responseJson) {
+        for (let reimbursement of responseJson) {
             requestTableData += ` <tr>
-                                    <td>${employeeRequest.reimbursemtextentId}</td>
-                                    <td>${employeeRequest.employeeId}</td>
-                                    <td>${employeeRequest.managerId}</td>
-                                    <td>${employeeRequest.status}</td>
-                                    <td>${employeeRequest.amount}</td>
-                                    <td>${employeeRequest.reason}</td>
+                                    <td>${reimbursement.reimbursemtextentId}</td>
+                                    <td>${reimbursement.employeeId}</td>
+                                    <td>${reimbursement.managerId}</td>
+                                    <td>${reimbursement.status}</td>
+                                    <td>${reimbursement.amount}</td>
+                                    <td>${reimbursement.reason}</td>
                                     </tr>`;
         }
         requestTableData += `</tbody></table>`;
