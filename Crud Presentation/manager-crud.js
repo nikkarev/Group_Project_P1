@@ -70,7 +70,7 @@ function viewAllRequests(){
                                     </tr>`;
         }
         reimbursementTableData += `</tbody></table>`;
-        document.getElementById("viewAllRequestContent").innerHTML = reimbursementTableData;
+        document.getElementById("content").innerHTML = reimbursementTableData;
     })
     .catch(error => console.log(error));
 }
