@@ -17,5 +17,5 @@ public interface ReimbursementService {
 
 	ReimbursementPojo changeRequestStatus(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 
-
+	List<ReimbursementPojo> viewAllResolvedRequests() throws ApplicationException;
 }

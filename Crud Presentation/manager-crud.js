@@ -82,6 +82,40 @@ function viewAllRequests(){
     .catch(error => console.log(error));
 }
 
+function viewAllResolvedRequests(){
+    fetch("http://localhost:7474/resolvedreimbursement")
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson)
+        let reimbursementTableData = ` <table class = "table table-striped">
+                                    <thead> 
+                                    <tr>
+                                        <th for="rID">Reimbursement Id</th>
+                                        <th for="eID">Employee Id</th>
+                                        <th for="mID">Manager Id</th>
+                                        <th for="status">Status</th>
+                                        <th for="amount">Amount</th>
+                                        <th for="reason">Reason</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    `;
+        for (let reimbursement of responseJson) {
+            reimbursementTableData += ` <tr>
+                                    <td id="rID">${reimbursement.reimbursementId}</td>
+                                    <td id="eID">${reimbursement.employeeId}</td>
+                                    <td id="mID">${reimbursement.managerId}</td>
+                                    <td id="status">${reimbursement.status}</td>
+                                    <td id="amount">${reimbursement.amount}</td>
+                                    <td id="reason">${reimbursement.reason}</td>
+                                    `;
+        }
+        reimbursementTableData += `</tbody></table>`;
+        document.getElementById("content").innerHTML = reimbursementTableData;
+    })
+    .catch(error => console.log(error));
+}
+
 function approveRequestStatus(reimbursementId, employeeId, managerId, amount, reason){
     
         let approveRequest = {

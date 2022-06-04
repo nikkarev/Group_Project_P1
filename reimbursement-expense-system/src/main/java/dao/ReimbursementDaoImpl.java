@@ -97,7 +97,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		try {
 			Connection conn = DBUtil.makeConnection();
 			stmt = conn.createStatement();
-			String query = "SELECT * FROM reimbursement";
+			String query = "SELECT * FROM reimbursement WHERE status= 'pending'";
 			ResultSet rs = stmt.executeQuery(query);
 
 			while(rs.next()) {
@@ -127,6 +127,31 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		}
 		LOG.info("Exited changeRequestStatus() in Dao.");
 		return reimbursementPojo;
+	}
+
+	@Override
+	public List<ReimbursementPojo> viewAllResolvedRequests() throws ApplicationException {
+		LOG.info("Entered viewAllResolvedRequests() in Dao.");
+		
+		List<ReimbursementPojo> allResolvedRequests = new ArrayList<ReimbursementPojo>();
+
+		Statement stmt;
+		try {
+			Connection conn = DBUtil.makeConnection();
+			stmt = conn.createStatement();
+			String query = "SELECT * FROM reimbursement WHERE status= 'Approve' OR status='Denied'";
+			ResultSet rs = stmt.executeQuery(query);
+
+			while(rs.next()) {
+				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getString(6));
+
+				allResolvedRequests.add(reimbursementPojo);
+			}
+		}catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		LOG.info("Exited viewAllResolvedRequests() in Dao.");
+		return allResolvedRequests;
 	}
 
 
