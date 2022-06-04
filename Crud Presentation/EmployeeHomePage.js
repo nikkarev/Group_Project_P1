@@ -120,7 +120,7 @@ function viewReimbursement(){
                                 <form>
                                     <div class="mb-3 mt-3">
                                         <label for="Enter Your Employee ID" class="form-label">Employee ID:</label>
-                                        <input type="text" class="form-control" id="EmployeeId" placeholder="First Name" name="employeeId">
+                                        <input type="text" class="form-control" id="eID" placeholder="Employee ID" name="employeeId">
                                     </div>
                                     <button type="button" class="btn btn-primary" onclick="viewMyReimbursement()">View My Reimbursement Details</button>
                                 </form>
@@ -173,8 +173,8 @@ function updateProfile(){
  
  }
 
- function viewMyReimbursement(){
-    fetch("http://localhost:7474/reimbursement/")
+ function viewMyReimbursement(eID){
+    fetch("http://localhost:7474/reimbursement/"+eID)
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
