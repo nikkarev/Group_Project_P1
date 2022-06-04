@@ -13,10 +13,11 @@ public interface ReimbursementDao {
 	List<ReimbursementPojo> viewEmployeeRequests(int employeeId) throws ApplicationException;
 	//manager views a specific employees requests
 	List<ReimbursementPojo> managerViewEmployeeRequests(int employeeId) throws ApplicationException;
-	//manager views all pending, denied, and resolved requests
+	//manager views all pending requests
 	List<ReimbursementPojo> viewAllRequests() throws ApplicationException;
 	//manager approves or denies a request
 	ReimbursementPojo changeRequestStatus(ReimbursementPojo reimbursementPojo) throws ApplicationException;
-
+	//manager view resolved requests
+	List<ReimbursementPojo> viewAllResolvedRequests() throws ApplicationException;
 
 }

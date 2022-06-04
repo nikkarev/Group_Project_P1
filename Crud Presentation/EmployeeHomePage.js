@@ -155,13 +155,10 @@ function submitRequest(){
        method: 'post',
        body: JSON.stringify(submitRequest) // converts JS object to JSON 
    })
-
-<<<<<<< HEAD
    document.getElementById("empFormSubmit").reset();
 
 }
-=======
-}
+
 
 function updateProfile(){
 
@@ -211,4 +208,3 @@ function updateProfile(){
     })
     .catch(error => console.log(error));
     }
->>>>>>> 41061a6026687d8109fc7ed6627cb45d0b431cba

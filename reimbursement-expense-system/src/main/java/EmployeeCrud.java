@@ -53,6 +53,11 @@ public class EmployeeCrud {
 			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
 			ctx.json(allRequests);
 		});
+		//Get all resolved requests
+		server.get("/resolvedreimbursement", (ctx) -> {
+			List<ReimbursementPojo> allResolvedRequests = reimbursementService.viewAllResolvedRequests();
+			ctx.json(allResolvedRequests);
+		});
 
 		// submit reimbursement request
 		server.post("/reimbursement", (ctx) -> {
