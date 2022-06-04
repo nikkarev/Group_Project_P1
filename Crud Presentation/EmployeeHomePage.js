@@ -177,9 +177,43 @@ function updateProfile(){
     })
  
  }
+ function displayEmployeeRequest(){
+    var eID = sessionStorage.getItem('currentUser');
+    fetch("http://localhost:7474/reimbursement/"+eID)
+    .then(response => response.json())
+    .then(responseJson => {
+
+
+        let requestTableData = ` <table class = "table table-striped">
+                                    <thead> 
+                                    <tr>
+                                        <th>Reimbursement Id</th>
+                                        <th>Employee Id</th>
+                                        <th>Status</th>
+                                        <th>Amount</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    `;
+        for (let reimbursement of responseJson) {
+            requestTableData += ` <tr>
+                                    <td>${reimbursement.reimbursementId}</td>
+                                    <td>${reimbursement.status}</td>
+                                    <td>${reimbursement.amount}</td>
+                                    <td>${reimbursement.reason}</td>
+                                    </tr>`;
+        }
+        requestTableData += `</tbody></table>`;
+        document.getElementById("content").innerHTML = requestTableData;
+    })
+    .catch(error => console.log(error));
+}
+ 
 
  function viewMyReimbursement(eID){
     fetch("http://localhost:7474/reimbursement/"+eID)
+
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
