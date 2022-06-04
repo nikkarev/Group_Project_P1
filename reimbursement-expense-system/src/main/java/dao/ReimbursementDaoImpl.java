@@ -139,7 +139,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		try {
 			Connection conn = DBUtil.makeConnection();
 			stmt = conn.createStatement();
-			String query = "SELECT * FROM reimbursement WHERE status= 'Approve' OR status='Denied'";
+			String query = "SELECT * FROM reimbursement WHERE status= 'Approve' OR status='Deny'";
 			ResultSet rs = stmt.executeQuery(query);
 
 			while(rs.next()) {
