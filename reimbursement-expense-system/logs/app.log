@@ -1,0 +1,8 @@
+2022-06-04 00:39:11,741 INFO s.EmployeeServiceImpl [main] Entered viewInfo() in service.
+2022-06-04 00:39:11,749 INFO s.ReimbursementServiceImpl [main] Entered viewInfo() in Dao.
+2022-06-04 00:39:12,505 INFO s.ReimbursementServiceImpl [main] Exited viewInfo() in Dao.
+2022-06-04 00:39:12,505 INFO s.EmployeeServiceImpl [main] Exited viewInfo() in service.
+2022-06-04 00:55:13,914 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Entered login() in service.
+2022-06-04 00:55:14,770 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Exited login() in service.
+2022-06-04 00:55:39,447 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] Entered login() in service.
+2022-06-04 00:55:39,465 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] Exited login() in service.
