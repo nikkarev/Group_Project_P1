@@ -73,7 +73,7 @@ function viewAllRequests(){
                                     <td><button 
                                             type="button" 
                                             class="btn btn-danger"
-                                            onclick="denyRequestStatus()">Deny</button></td>
+                                            onclick="denyRequestStatus(${reimbursement.reimbursementId})">Deny</button></td>
                                     </tr>`;
         }
         reimbursementTableData += `</tbody></table>`;
@@ -81,27 +81,18 @@ function viewAllRequests(){
     })
     .catch(error => console.log(error));
 }
-//${reimbursement.reimbursementId}, ${reimbursement.employeeId}, ${reimbursement.managerId}, ${reimbursement.amount}, ${reimbursement.reason}
-//reimbursementId, employeeId, managerId, amount, reason
-function approveRequestStatus(reimbursementId, employeeId, managerId, amount, reason){
 
-        let approveRequest = {
-            reimbursementId: approveRequestStatus(reimbursementId).value,
-            employeeId: approveRequestStatus(employeeId).value,
-            managerId: approveRequestStatus(managerId).value,
-            status: "Approve",
-            amount: approveRequestStatus(amount).value,
-            reason: approveRequestStatus(reason).value,
-        };
-        // let approveRequest = {
-        // reimbursementId: document.getElementById("rID").value,
-        // //reimbursementId: approveRequestStatus(reimbursementId).value,
-        // employeeId: document.getElementById("eID").value,
-        // managerId: document.getElementById("mID").value,
-        // status: "Approve",
-        // amount: document.getElementById("amount").value,
-        // reason: document.getElementById("reason").value,
+function approveRequestStatus(reimbursementId, employeeId, managerId, amount, reason){
     
+        let approveRequest = {
+            reimbursementId,
+            employeeId,
+            managerId,
+            status: "Approve",
+            amount,
+            reason,
+            
+        };
     console.log(approveRequest);
     fetch("http://localhost:7474/reimbursement/approve", {
         method: 'post',
@@ -111,7 +102,29 @@ function approveRequestStatus(reimbursementId, employeeId, managerId, amount, re
         viewAllRequests();
     });
  
-}
+};
+
+function denyRequestStatus(reimbursementId, employeeId, managerId, amount, reason){
+    
+    let approveRequest = {
+        reimbursementId,
+        employeeId,
+        managerId,
+        status: "Deny",
+        amount,
+        reason,
+        
+    };
+console.log(approveRequest);
+fetch("http://localhost:7474/reimbursement/approve", {
+    method: 'post',
+    body: JSON.stringify(approveRequest) // converts JS object to JSON 
+}).then(response => {
+    console.log(response);
+    viewAllRequests();
+});
+
+};
 
 function displayReimbursementsForEmployee(){
     let employeeIdForm = `<div class="container">
@@ -120,50 +133,6 @@ function displayReimbursementsForEmployee(){
                                <label for="eID" class="form-label">Employee ID:</label>
                                <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
                             </div>
-<<<<<<< HEAD
-                            <button type="button" class="btn btn-primary" onclick="viewEmpData()">Submit</button>
-                        </form>
-                    </div>
-                           `;
-document.getElementById("content").innerHTML = employeeIdForm;
-        
-        
-        }
-
-        function viewEmpData(){
-            fetch("http://localhost:7474/reimbursement")
-            .then(response => response.json())
-            .then(responseJson => {
-                console.log(responseJson)
-                let reimbursementTableDataEmp = ` <table class = "table table-striped">
-                                            <thead> 
-                                            <tr>
-                                                <th>Reimbursement Id</th>
-                                                <th>Employee Id</th>
-                                                <th>Manager Id</th>
-                                                <th>Status</th>
-                                                <th>Amount</th>
-                                                <th>Reason</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            `;
-                for (let reimbursement of responseJson) {
-                    reimbursementTableDataEmp += ` <tr>
-                                            <td>${reimbursement.reimbursementId}</td>
-                                            <td>${reimbursement.employeeId}</td>
-                                            <td>${reimbursement.managerId}</td>
-                                            <td>${reimbursement.status}</td>
-                                            <td>${reimbursement.amount}</td>
-                                            <td>${reimbursement.reason}</td>
-                                            </tr>`;
-                }
-                reimbursementTableDataEmp += `</tbody></table>`;
-                document.getElementById("content").innerHTML = reimbursementTableDataEmp;
-            })
-            .catch(error => console.log(error));
-        }
-=======
                             <button type="button" class="btn btn-primary" onclick="displayEmployeeRequest(document.getElementById('eID').value)">Submit</button>
                         </form>
                     </div>
@@ -202,4 +171,3 @@ function displayEmployeeRequest(eID){
     })
     .catch(error => console.log(error));
 }
->>>>>>> 41061a6026687d8109fc7ed6627cb45d0b431cba
