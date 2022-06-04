@@ -45,7 +45,6 @@ public class EmployeeCrud {
 			ctx.json(returnEmpProfilePojo); 
 		});
 		
-		
 
 		// **************************************************REIMBURSEMENT CRUD OPERATION***************************************************
 
@@ -53,6 +52,11 @@ public class EmployeeCrud {
 		server.get("/reimbursement", (ctx) -> {
 			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
 			ctx.json(allRequests);
+		});
+		//Get all resolved requests
+		server.get("/resolvedreimbursement", (ctx) -> {
+			List<ReimbursementPojo> allResolvedRequests = reimbursementService.viewAllResolvedRequests();
+			ctx.json(allResolvedRequests);
 		});
 
 		// submit reimbursement request
@@ -62,6 +66,17 @@ public class EmployeeCrud {
 			ctx.json(returnReimbursementPojo);
 			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
 			ctx.json(returnBookPojo);
+		});
+		
+server.post("/reimbursement/approve", (ctx) -> {
+			
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			
+			
+			ReimbursementPojo updateReimbursementPojo = reimbursementService.changeRequestStatus(newReimbursementPojo);
+			
+			
+			ctx.json(updateReimbursementPojo);
 		});
 
 		// endpoint for viewing specific employee reimbursement request

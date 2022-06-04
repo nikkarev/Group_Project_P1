@@ -88,10 +88,10 @@ function printData(){
 
 function displayReimbursementForm(){
     let reimbursementForm = `<div class="container">
-                       <form id="someId">
+                       <form id="empFormSubmit">
                            <div class="mb-3 mt-3">
                                <label for="eID" class="form-label">Employee ID:</label>
-                               <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
+                               <input type="text" class="form-control" id="eID"  name="employeeId">
                            </div>
                            <div class="mb-3 mt-3">
                                <label for="mID" class="form-label">Manager ID:</label>
@@ -110,8 +110,9 @@ function displayReimbursementForm(){
                    </div>
                    `;
    document.getElementById("content").innerHTML = reimbursementForm;
-
-
+   var empId = sessionStorage.getItem('currentUser');
+   document.getElementById("eID").value=empId;
+   
 }
 
 function viewReimbursement(){
@@ -139,10 +140,12 @@ function submitRequest(){
 
    // construct a java script object whose properties match the bookpojo object's properties
        // of the back end application
-   
+       var empId = sessionStorage.getItem('currentUser');
+
        let submitRequest = {
        reimbursementId: 0,
-       employeeId: document.getElementById("eID").value,
+       employeeId: document.getElementById("eID").value=empId ,
+       //employeeId: JSON.parse(sessionStorage.getItem('currentUser')),
        managerId: document.getElementById("mID").value,
        status: 0,
        amount: document.getElementById("amount").value,
@@ -152,8 +155,10 @@ function submitRequest(){
        method: 'post',
        body: JSON.stringify(submitRequest) // converts JS object to JSON 
    })
+   document.getElementById("empFormSubmit").reset();
 
 }
+
 
 function updateProfile(){
 
