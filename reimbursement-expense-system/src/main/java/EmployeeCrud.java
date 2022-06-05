@@ -39,10 +39,18 @@ public class EmployeeCrud {
 
 
 		// post request to update employee info
+		server.get("/employees/{eID}", (ctx) -> {
+			
+
+			EmployeePojo returnEmpProfilePojo = employeeService.viewInfo((Integer.parseInt(ctx.pathParam("eID"))));
+			ctx.json(returnEmpProfilePojo); 
+		});
+		
+		
+		// update employee profile info
 		server.post("/employees/profile", (ctx) -> {
 			EmployeePojo updateEmpProfilePojo = ctx.bodyAsClass(EmployeePojo.class);
-			EmployeePojo returnEmpProfilePojo = employeeService.updateInfo(updateEmpProfilePojo);
-			ctx.json(returnEmpProfilePojo); 
+			ctx.json(employeeService.updateInfo(updateEmpProfilePojo));
 		});
 		
 
