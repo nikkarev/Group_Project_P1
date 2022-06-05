@@ -25,10 +25,15 @@ function auth(event) {
         return;
     } else if(jsonResponse.employeeId != 0 && jsonResponse.managerType == true){
         sessionStorage.setItem('currentUser',jsonResponse.employeeId);
+        
         window.location.replace("/ManagerHome.html");
     }
       else{
         sessionStorage.setItem('currentUser',jsonResponse.employeeId);
+        sessionStorage.setItem('currentfName',jsonResponse.firstName);
+        sessionStorage.setItem('currentlName',jsonResponse.lastName);
+        sessionStorage.setItem('currentemail',jsonResponse.email);
+        sessionStorage.setItem('currentuName',jsonResponse.userName);
         window.location.replace("/EmployeeHomePage.html");
     }
 });

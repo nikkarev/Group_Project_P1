@@ -1980,3 +1980,9 @@
 2022-06-05 18:06:04,269 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewEmployeeRequests() in Dao.
 2022-06-05 18:06:04,339 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewEmployeeRequests() in Dao.
 2022-06-05 18:06:04,339 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewEmployeeRequests() in service.
+2022-06-05 18:30:31,562 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Entered login() in service.
+2022-06-05 18:30:32,765 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered login() in service.
+2022-06-05 18:30:33,630 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Exited login() in service.
+2022-06-05 18:30:33,648 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited login() in service.
+2022-06-05 19:42:49,257 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered login() in service.
+2022-06-05 19:42:49,384 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited login() in service.
