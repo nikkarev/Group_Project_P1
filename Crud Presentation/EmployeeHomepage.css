@@ -1,12 +1,10 @@
 .pagination {
-
     text-align: center;
     margin: 30px 30px 60px;
     user-select: none; 
 }
 
 .pagination li {
-
     display:inline-block;
     margin: 5px;
     box-shadow:0 5px 25px rgb(1 1 1/  10%);
@@ -16,8 +14,8 @@
 table{
 	margin-top: 20px;
 	text-align: center;
-	background: #333;
-	color: #fff;
+	/* background: #555;
+	color: #fff; */
 }
 
 #show th, #show td{
@@ -29,6 +27,103 @@ table{
 }
 
 
+nav {
+  width: 80%;
+  margin: 0 auto;
+  background: #cccccc;
+  color: white;
+  padding: 50px 0;
+}
 
+nav ul {
+  list-style: none;
+  text-align: center;
+}
 
+nav ul li a{
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
 
+nav a.dropdown-item {
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  margin: 0;
+  font-family: inherit;
+  background-color: inherit;
+  visibility: visible;
+  color: #555;
+}
+
+nav ul li a,
+nav ul li a:after,
+nav ul li a::before{
+  transition: all .5s;
+}
+
+nav ul li a:hover {
+  color: #555;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+}
+
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  visibility: visible;
+}
+
+nav.navbar ul li a {
+  position: relative;
+}
+
+nav.navbar ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.navbar ul li a:hover:after {
+  width: 100%;
+}
+
+nav.navbar ul li a {
+  transition: all 2s;
+}
+
+nav.navbar ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.navbar ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.navbar ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
