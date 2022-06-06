@@ -60,7 +60,6 @@ public class EmployeeCrud {
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
 			ReimbursementPojo returnReimbursementPojo = reimbursementService.submitRequest(newReimbursementPojo);
 			ctx.json(returnReimbursementPojo);
-			
 		});
 		//end point for change a reimbursement status 
 		server.post("/reimbursement/changestatus", (ctx) -> {
@@ -77,6 +76,14 @@ public class EmployeeCrud {
 			List<ReimbursementPojo> employeeRequestPojo = reimbursementService
 					.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("eID")));
 			ctx.json(employeeRequestPojo);
+		});
+		
+		
+		//Register New User
+		server.post("/employees/register", (ctx) -> {
+			EmployeePojo newEmployeePojo = ctx.bodyAsClass(EmployeePojo.class);
+			EmployeePojo registerPojo = employeeService.register(newEmployeePojo);
+			ctx.json(registerPojo);
 		});
 	}
 }
