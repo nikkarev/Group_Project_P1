@@ -35,6 +35,7 @@ function displayReimbursementForm(){
 function submitRequest() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     var empId = sessionStorage.getItem('currentUser');
 
     let submitRequest = {
@@ -55,6 +56,8 @@ function submitRequest() {
 //When View Reimbursement status is selected in the navbar, the employee id is pulled from the session storage and get request is ran to the reimbursement table, fetching the reimbursements that match the empid
 function displayEmployeeRequest() {
 =======
+=======
+>>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
 function submitRequest(){
 
        var empId = sessionStorage.getItem('currentUser');
@@ -135,6 +138,9 @@ function displayUserProfile() {
                     .then(responseJson => {
 
                         let userForm   =  `<div class="container">
+<<<<<<< HEAD
+>>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
+=======
 >>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
                                 <form>
                                     <div class="mb-3 mt-3">
@@ -160,6 +166,7 @@ function displayUserProfile() {
                                         <button type="button" class="btn btn-primary" onclick="updateProfile()">Update Profile</button>
                                 </form>
                             </div>`;
+<<<<<<< HEAD
 <<<<<<< HEAD
             document.getElementById("content").innerHTML = userForm;
             document.getElementById("Firstname").value = firstName;
@@ -188,6 +195,8 @@ function clearSession() {
     sessionStorage.clear;
 }
 =======
+=======
+>>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
 
                         
                     document.getElementById("content").innerHTML = userForm;
@@ -218,5 +227,9 @@ function clearSession() {
 
                  function clearSession(){
                     sessionStorage.clear;
+<<<<<<< HEAD
+                 }
+>>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
+=======
                  }
 >>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
