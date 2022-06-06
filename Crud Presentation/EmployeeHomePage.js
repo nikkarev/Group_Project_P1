@@ -19,7 +19,7 @@ function displayReimbursementForm() {
                                <label for="reason" class="form-label">Reason:</label>
                                <input type="text" class="form-control" id="reason" placeholder="Reason" name="Reason">
                            </div>
-                           <button type="button" class="btn btn-primary" onclick="submitRequest()">Submit Request</button>
+                           <button type="button" class="btn" onclick="submitRequest()">Submit Request</button>
                        </form>
                    </div>
                    `;
@@ -109,7 +109,7 @@ function displayUserProfile() {
                                         <label for="Username" class="form-label">Username:</label>
                                         <input type="text" class="form-control" style="width:400px" id="Username" placeholder="username" name="userName"> 
                                     </div>
-                                        <button type="button" class="btn btn-primary" onclick="updateProfile()">Update Profile</button>
+                                        <button type="button" class="btn" onclick="updateProfile()">Update Profile</button>
                                 </form>
                             </div>`;
             document.getElementById("content").innerHTML = userForm;

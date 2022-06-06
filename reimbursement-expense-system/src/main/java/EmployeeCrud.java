@@ -60,8 +60,6 @@ public class EmployeeCrud {
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
 			ReimbursementPojo returnReimbursementPojo = reimbursementService.submitRequest(newReimbursementPojo);
 			ctx.json(returnReimbursementPojo);
-			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
-			ctx.json(returnBookPojo);
 		});
 		//end point for change a reimbursement status 
 		server.post("/reimbursement/changestatus", (ctx) -> {
