@@ -70,9 +70,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 			Connection conn = DBUtil.makeConnection();
 			Statement stmt = conn.createStatement();
+<<<<<<< HEAD
 			String query = "UPDATE employee SET (first_name, last_name, email, user_name)=('"
 					+ employeePojo.getFirstName() + "','" + employeePojo.getLastName() + "','" + employeePojo.getEmail()
 					+ "','" + employeePojo.getUserName() + "') WHERE employee_id=" + employeePojo.getEmployeeId();
+=======
+			String query = "UPDATE employee SET (first_name, last_name, email, user_name)=('" + employeePojo.getFirstName() + "','" + employeePojo.getLastName() 
+			+ "','" + employeePojo.getEmail() + "','" + employeePojo.getUserName() + "') WHERE employee_id=" + employeePojo.getEmployeeId();
+>>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
 			int rowsAffected = stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
