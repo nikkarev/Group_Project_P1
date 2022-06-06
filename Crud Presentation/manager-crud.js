@@ -63,11 +63,11 @@ function viewAllRequests() {
                                     <td id="reason">${reimbursement.reason}</td>
                                     <td><button 
                                             type="button" 
-                                            class="btn btn-success"
+                                            class="btn1"
                                             onclick="approveRequestStatus(${reimbursement.reimbursementId})">Approve</button></td>
                                     <td><button 
                                             type="button" 
-                                            class="btn btn-danger"
+                                            class="btn2"
                                             onclick="denyRequestStatus(${reimbursement.reimbursementId})">Deny</button></td>
                                     </tr>`;
             }
