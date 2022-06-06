@@ -3827,3 +3827,11 @@
 2022-06-06 17:27:32,008 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Entered viewAllRequests() in Dao.
 2022-06-06 17:27:32,037 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited viewAllRequests() in Dao.
 2022-06-06 17:27:32,038 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Exited viewAllRequests() in service.
+2022-06-06 17:49:27,071 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered viewInfo() in service.
+2022-06-06 17:49:27,081 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewInfo() in Dao.
+2022-06-06 17:49:28,020 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewInfo() in Dao.
+2022-06-06 17:49:28,020 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited viewInfo() in service.
+2022-06-06 17:49:33,961 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-16] Entered viewEmployeeRequests() in service.
+2022-06-06 17:49:33,962 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-16] Entered viewEmployeeRequests() in Dao.
+2022-06-06 17:49:33,994 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-16] Exited viewEmployeeRequests() in Dao.
+2022-06-06 17:49:33,994 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-16] Exited viewEmployeeRequests() in service.

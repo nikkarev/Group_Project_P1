@@ -147,9 +147,3 @@ button {
 button:hover {
   border-color: rgba(255,255,255,1);
 }
-
-button.btn {
-  display:inline-block;
-  background-color: #DC143C;
-  color: #fff;
-}
