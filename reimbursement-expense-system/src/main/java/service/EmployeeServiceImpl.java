@@ -12,6 +12,7 @@ import dao.EmployeeDao;
 import dao.EmployeeDaoImpl;
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.ReimbursementPojo;
 
 public class EmployeeServiceImpl implements EmployeeService {
 	
@@ -54,5 +55,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		LOG.info("Exited getAllEmployees() in service.");
 		return allEmployees;
 	}
+
+	@Override
+	public EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException {
+		LOG.info("Entered register() in service.");
+		EmployeePojo registerPojo = this.employeeDao.register(employeePojo);
+		//ReimbursementPojo returnReimbursementPojo = this.reimbursementDao.submitRequest(reimbursementPojo);
+		LOG.info("Exited register() in service.");
+		return registerPojo;
+	}
+	
+	
 
 }

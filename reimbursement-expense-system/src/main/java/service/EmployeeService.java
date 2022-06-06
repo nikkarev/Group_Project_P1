@@ -14,5 +14,7 @@ public interface EmployeeService {
 	EmployeePojo updateInfo(EmployeePojo employeePojo) throws ApplicationException;
 
 	List<EmployeePojo> getAllEmployees() throws ApplicationException;
+	
+	EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException;
 
 }
