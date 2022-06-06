@@ -8,27 +8,27 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="EmployeeHomepage.js"></script>
   <title> Expense Reimbursement System</title>
-  <link rel="stylesheet" type="text/css" ref="EmployeeHomepage.css">
+  <link rel="stylesheet" type="text/css" href="EmployeeHomepage.css">
 </head>
 
 <body>
   <!--When we click a link in the navbar we should call a javascript function-->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm">
     <div class="container-fluid">
       <div class="Logo">
         <img src="RevatureLogo.png" alt="Logo" width="140" height="80">
       </div>
-      <a class="navbar-brand" href="">Employee Dashboard</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="">Home</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="displayUserProfile()">View Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="displayReimbursementForm()">Submit A Reimbusement</a>
+            <a class="nav-link" href="#" onclick="displayReimbursementForm()">Submit Reimbusement</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="displayEmployeeRequest()">View Reimbursement Status</a>
