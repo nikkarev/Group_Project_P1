@@ -14,6 +14,7 @@ function auth(event) {
         method: 'post',
         body: JSON.stringify(loginUser)
     })
+<<<<<<< HEAD
         .then(response => response.json())
         //.then(sessionStorage.setItem('currentUser',jsonResponse.employeeId))
         .then(jsonResponse => {
@@ -34,5 +35,28 @@ function auth(event) {
                 window.location.replace("/EmployeeHomePage.html");
             }
         });
+=======
+    .then(response => response.json())
+    //.then(sessionStorage.setItem('currentUser',jsonResponse.employeeId))
+    .then(jsonResponse =>
+        {
+    if (jsonResponse.employeeId == 0){
+        alert("Invalid information");
+        return;
+    } else if(jsonResponse.employeeId != 0 && jsonResponse.managerType == true){
+        sessionStorage.setItem('currentUser',jsonResponse.employeeId);
+        
+        window.location.replace("/ManagerHome.html");
+    }
+      else{
+        sessionStorage.setItem('currentUser',jsonResponse.employeeId);
+        sessionStorage.setItem('currentfName',jsonResponse.firstName);
+        sessionStorage.setItem('currentlName',jsonResponse.lastName);
+        sessionStorage.setItem('currentemail',jsonResponse.email);
+        sessionStorage.setItem('currentuName',jsonResponse.userName);
+        window.location.replace("/EmployeeHomePage.html");
+    }
+});
+>>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
 
 }
