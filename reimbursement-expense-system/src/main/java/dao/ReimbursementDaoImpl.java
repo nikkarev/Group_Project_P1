@@ -15,7 +15,7 @@ import model.ReimbursementPojo;
 import service.ReimbursementServiceImpl;
 
 public class ReimbursementDaoImpl implements ReimbursementDao {
-	
+
 	private static final Logger LOG = LogManager.getLogger(ReimbursementServiceImpl.class);
 
 	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
@@ -25,12 +25,14 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		try {
 			Connection conn = DBUtil.makeConnection();
 			Statement stmt = conn.createStatement();
-			String query = "INSERT INTO reimbursement(employee_id, manager_id, status, amount, reason) VALUES("+reimbursementPojo.getEmployeeId()+","
-					+reimbursementPojo.getManagerId()+",'pending',"+reimbursementPojo.getAmount()+",'"+reimbursementPojo.getReason()+"') returning reimbursement_id";
+			String query = "INSERT INTO reimbursement(employee_id, manager_id, status, amount, reason) VALUES("
+					+ reimbursementPojo.getEmployeeId() + "," + reimbursementPojo.getManagerId() + ",'pending',"
+					+ reimbursementPojo.getAmount() + ",'" + reimbursementPojo.getReason()
+					+ "') returning reimbursement_id";
 			ResultSet rs = stmt.executeQuery(query);
 			rs.next();
 			reimbursementPojo.setReimbursementId(rs.getInt(1));
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("Exited submitRequest() in Dao.");
@@ -40,22 +42,23 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	public List<ReimbursementPojo> viewEmployeeRequests(int employeeId) throws ApplicationException {
 
 		LOG.info("Entered viewEmployeeRequests() in Dao.");
-		
+
 		List<ReimbursementPojo> employeeGetsRequests = new ArrayList<ReimbursementPojo>();
 
 		Statement stmt;
 		try {
 			Connection conn = DBUtil.makeConnection();
 			stmt = conn.createStatement();
-			String query = "SELECT * FROM reimbursement WHERE employee_id="+employeeId;
+			String query = "SELECT * FROM reimbursement WHERE employee_id=" + employeeId;
 			ResultSet rs = stmt.executeQuery(query);
 
-			while(rs.next()) {
-				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getString(6));
+			while (rs.next()) {
+				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3),
+						rs.getString(4), rs.getDouble(5), rs.getString(6));
 
 				employeeGetsRequests.add(reimbursementPojo);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("Exited viewEmployeeRequests() in Dao.");
@@ -65,22 +68,23 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	public List<ReimbursementPojo> managerViewEmployeeRequests(int employeeId) throws ApplicationException {
 
 		LOG.info("Entered managerViewEmployeeRequests() in Dao.");
-		
+
 		List<ReimbursementPojo> managerGetsRequests = new ArrayList<ReimbursementPojo>();
 
 		Statement stmt;
 		try {
 			Connection conn = DBUtil.makeConnection();
 			stmt = conn.createStatement();
-			String query = "SELECT * FROM reimbursement WHERE employee_id="+employeeId;
+			String query = "SELECT * FROM reimbursement WHERE employee_id=" + employeeId;
 			ResultSet rs = stmt.executeQuery(query);
 
-			while(rs.next()) {
-				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getString(6));
+			while (rs.next()) {
+				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3),
+						rs.getString(4), rs.getDouble(5), rs.getString(6));
 
 				managerGetsRequests.add(reimbursementPojo);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("Exited managerViewEmployeeRequests() in Dao.");
@@ -90,7 +94,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	public List<ReimbursementPojo> viewAllRequests() throws ApplicationException {
 
 		LOG.info("Entered viewAllRequests() in Dao.");
-		
+
 		List<ReimbursementPojo> allRequests = new ArrayList<ReimbursementPojo>();
 
 		Statement stmt;
@@ -100,12 +104,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 			String query = "SELECT * FROM reimbursement WHERE status= 'pending'";
 			ResultSet rs = stmt.executeQuery(query);
 
-			while(rs.next()) {
-				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getString(6));
+			while (rs.next()) {
+				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3),
+						rs.getString(4), rs.getDouble(5), rs.getString(6));
 
 				allRequests.add(reimbursementPojo);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("Exited viewAllRequests() in Dao.");
@@ -115,12 +120,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	public ReimbursementPojo changeRequestStatus(ReimbursementPojo reimbursementPojo) throws ApplicationException {
 
 		LOG.info("Entered changeRequestStatus() in Dao.");
-		
+
 		try {
 
 			Connection conn = DBUtil.makeConnection();
 			Statement stmt = conn.createStatement();
-			String query = "UPDATE reimbursement SET status='"+reimbursementPojo.getStatus()+"' WHERE reimbursement_id="+reimbursementPojo.getReimbursementId();
+			String query = "UPDATE reimbursement SET status='" + reimbursementPojo.getStatus()
+					+ "' WHERE reimbursement_id=" + reimbursementPojo.getReimbursementId();
 			int rowsAffected = stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
@@ -132,7 +138,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	@Override
 	public List<ReimbursementPojo> viewAllResolvedRequests() throws ApplicationException {
 		LOG.info("Entered viewAllResolvedRequests() in Dao.");
-		
+
 		List<ReimbursementPojo> allResolvedRequests = new ArrayList<ReimbursementPojo>();
 
 		Statement stmt;
@@ -142,17 +148,17 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 			String query = "SELECT * FROM reimbursement WHERE status= 'Approve' OR status='Deny'";
 			ResultSet rs = stmt.executeQuery(query);
 
-			while(rs.next()) {
-				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getString(6));
+			while (rs.next()) {
+				ReimbursementPojo reimbursementPojo = new ReimbursementPojo(rs.getInt(1), rs.getInt(2), rs.getInt(3),
+						rs.getString(4), rs.getDouble(5), rs.getString(6));
 
 				allResolvedRequests.add(reimbursementPojo);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("Exited viewAllResolvedRequests() in Dao.");
 		return allResolvedRequests;
 	}
-
 
 }

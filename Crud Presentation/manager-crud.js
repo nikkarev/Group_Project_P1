@@ -1,14 +1,9 @@
-//here contains javascript functions that will consume endpoints
-function printData(){
-    document.write("Data printed on the document...")
-    console.log("data printed on the console...")
-}
-
-function getAllEmployees(){
-fetch("http://localhost:7474/employees")
-.then(response => response.json())
-.then(responseJson => {
-    let employeeTableData = `<table class="table table-striped">
+//When Employees is clicked in the navbar, a get request is run to the employee table, fetching all records that arent a manager, and populates a table with their information
+function getAllEmployees() {
+    fetch("http://localhost:7474/employees")
+        .then(response => response.json())
+        .then(responseJson => {
+            let employeeTableData = `<table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Employee Id</th>
@@ -22,8 +17,8 @@ fetch("http://localhost:7474/employees")
                     </tr>
                     </thead>
                     <tbody>`;
-    for(let employee of responseJson){
-        employeeTableData += `<tr>
+            for (let employee of responseJson) {
+                employeeTableData += `<tr>
                             <td>${employee.employeeId}</td>
                             <td>${employee.managerId}</td>
                             <td>${employee.firstName}</td>
@@ -33,19 +28,19 @@ fetch("http://localhost:7474/employees")
                             <td>${employee.password}</td>
                             <td>${employee.managerType}</td>
                            </tr>`;
-    }
-    employeeTableData += `</tbody></table>`;
-    document.getElementById("content").innerHTML = employeeTableData;
-})
-.catch(error => console.log(error));
+            }
+            employeeTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeTableData;
+        })
+        .catch(error => console.log(error));
 }
-
-function viewAllRequests(){
+//WHen Pending requests is selected from the reimbursement drop down, a get request is ran to the database, and all records in the reimbursement table with a status = pending will be retrived, populating a table with the records. Buttons for approve and deny are also added to the end of each record.
+function viewAllRequests() {
     fetch("http://localhost:7474/reimbursement")
-    .then(response => response.json())
-    .then(responseJson => {
-        console.log(responseJson)
-        let reimbursementTableData = ` <table class = "table table-striped">
+        .then(response => response.json())
+        .then(responseJson => {
+            console.log(responseJson)
+            let reimbursementTableData = ` <table class = "table table-striped">
                                     <thead> 
                                     <tr>
                                         <th for="rID">Reimbursement Id</th>
@@ -58,8 +53,8 @@ function viewAllRequests(){
                                     </thead>
                                     <tbody>
                                     `;
-        for (let reimbursement of responseJson) {
-            reimbursementTableData += ` <tr>
+            for (let reimbursement of responseJson) {
+                reimbursementTableData += ` <tr>
                                     <td id="rID">${reimbursement.reimbursementId}</td>
                                     <td id="eID">${reimbursement.employeeId}</td>
                                     <td id="mID">${reimbursement.managerId}</td>
@@ -75,19 +70,19 @@ function viewAllRequests(){
                                             class="btn btn-danger"
                                             onclick="denyRequestStatus(${reimbursement.reimbursementId})">Deny</button></td>
                                     </tr>`;
-        }
-        reimbursementTableData += `</tbody></table>`;
-        document.getElementById("content").innerHTML = reimbursementTableData;
-    })
-    .catch(error => console.log(error));
+            }
+            reimbursementTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = reimbursementTableData;
+        })
+        .catch(error => console.log(error));
 }
-
-function viewAllResolvedRequests(){
+//When resolved requests is selected from the drop down menu, a get request is ran to the database, selecting all records from the reimbursement table where the status = approve or deny, and populates a table in the content containing each record
+function viewAllResolvedRequests() {
     fetch("http://localhost:7474/resolvedreimbursement")
-    .then(response => response.json())
-    .then(responseJson => {
-        console.log(responseJson)
-        let reimbursementTableData = ` <table class = "table table-striped">
+        .then(response => response.json())
+        .then(responseJson => {
+            console.log(responseJson)
+            let reimbursementTableData = ` <table class = "table table-striped">
                                     <thead> 
                                     <tr>
                                         <th for="rID">Reimbursement Id</th>
@@ -100,8 +95,8 @@ function viewAllResolvedRequests(){
                                     </thead>
                                     <tbody>
                                     `;
-        for (let reimbursement of responseJson) {
-            reimbursementTableData += ` <tr>
+            for (let reimbursement of responseJson) {
+                reimbursementTableData += ` <tr>
                                     <td id="rID">${reimbursement.reimbursementId}</td>
                                     <td id="eID">${reimbursement.employeeId}</td>
                                     <td id="mID">${reimbursement.managerId}</td>
@@ -109,37 +104,36 @@ function viewAllResolvedRequests(){
                                     <td id="amount">${reimbursement.amount}</td>
                                     <td id="reason">${reimbursement.reason}</td>
                                     `;
-        }
-        reimbursementTableData += `</tbody></table>`;
-        document.getElementById("content").innerHTML = reimbursementTableData;
-    })
-    .catch(error => console.log(error));
+            }
+            reimbursementTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = reimbursementTableData;
+        })
+        .catch(error => console.log(error));
 }
+//When the approve button is pressed, an onclick event invokes this method, changing the status for the record in the reimbursement table in the database from pending to approve. This also removes the record from the pending reimbursements table in the window
+function approveRequestStatus(reimbursementId, employeeId, managerId, amount, reason) {
 
-function approveRequestStatus(reimbursementId, employeeId, managerId, amount, reason){
-    
-        let approveRequest = {
-            reimbursementId,
-            employeeId,
-            managerId,
-            status: "Approve",
-            amount,
-            reason,
-            
-        };
+    let approveRequest = {
+        reimbursementId,
+        employeeId,
+        managerId,
+        status: "Approve",
+        amount,
+        reason,
+    };
     console.log(approveRequest);
-    fetch("http://localhost:7474/reimbursement/approve", {
+    fetch("http://localhost:7474/reimbursement/changestatus", {
         method: 'post',
         body: JSON.stringify(approveRequest) // converts JS object to JSON 
     }).then(response => {
         console.log(response);
         viewAllRequests();
     });
- 
-};
 
-function denyRequestStatus(reimbursementId, employeeId, managerId, amount, reason){
-    
+};
+//When the deny button is pressed, the onclick event invokes this method, changing the status for ther record in the reimbursement table in the database from pending to deny. THis also removes the record from the pending reimbursement table in the window
+function denyRequestStatus(reimbursementId, employeeId, managerId, amount, reason) {
+
     let approveRequest = {
         reimbursementId,
         employeeId,
@@ -147,20 +141,20 @@ function denyRequestStatus(reimbursementId, employeeId, managerId, amount, reaso
         status: "Deny",
         amount,
         reason,
-        
+
     };
-console.log(approveRequest);
-fetch("http://localhost:7474/reimbursement/approve", {
-    method: 'post',
-    body: JSON.stringify(approveRequest) // converts JS object to JSON 
-}).then(response => {
-    console.log(response);
-    viewAllRequests();
-});
+    console.log(approveRequest);
+    fetch("http://localhost:7474/reimbursement/changestatus", {
+        method: 'post',
+        body: JSON.stringify(approveRequest) // converts JS object to JSON 
+    }).then(response => {
+        console.log(response);
+        viewAllRequests();
+    });
 
 };
-
-function displayReimbursementsForEmployee(){
+//When the view a employee request is selected from the dropdown in the navbar, a form populates the content of the window. This form contains a single field where your able to enter the desired employees empID
+function displayReimbursementsForEmployee() {
     let employeeIdForm = `<div class="container">
                        <form>
                             <div class="mb-3 mt-3">
@@ -173,13 +167,13 @@ function displayReimbursementsForEmployee(){
                            `;
     document.getElementById("content").innerHTML = employeeIdForm;
 }
+//When the submit button is pressed in form, it invokes this method, creating a get request to the reimbursement table in the database. It selects all record where the empID matches what was passed in the form, and populates a table in the content with all their reimbursements
+function displayEmployeeRequest(eID) {
+    fetch("http://localhost:7474/reimbursement/" + eID)
+        .then(response => response.json())
+        .then(responseJson => {
 
-function displayEmployeeRequest(eID){
-    fetch("http://localhost:7474/reimbursement/"+eID)
-    .then(response => response.json())
-    .then(responseJson => {
-
-        let requestTableData = ` <table class = "table table-striped">
+            let requestTableData = ` <table class = "table table-striped">
                                     <thead> 
                                     <tr>
                                         <th>Reimbursement Id</th>
@@ -191,17 +185,17 @@ function displayEmployeeRequest(eID){
                                     </thead>
                                     <tbody>
                                     `;
-        for (let reimbursement of responseJson) {
-            requestTableData += ` <tr>
+            for (let reimbursement of responseJson) {
+                requestTableData += ` <tr>
                                     <td>${reimbursement.reimbursementId}</td>
                                     <td>${reimbursement.employeeId}</td>
                                     <td>${reimbursement.status}</td>
                                     <td>${reimbursement.amount}</td>
                                     <td>${reimbursement.reason}</td>
                                     </tr>`;
-        }
-        requestTableData += `</tbody></table>`;
-        document.getElementById("content").innerHTML = requestTableData;
-    })
-    .catch(error => console.log(error));
+            }
+            requestTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = requestTableData;
+        })
+        .catch(error => console.log(error));
 }
