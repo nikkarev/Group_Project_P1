@@ -1,10 +1,6 @@
 
-<<<<<<< HEAD
 //When submit a request is clicked in the navbar, this form populates the content and an employee can enter there manager id, ammount, and reason for a reimbursement. The empid field is populated automatically from the current loged in users session storage
 function displayReimbursementForm() {
-=======
-function displayReimbursementForm(){
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
     let reimbursementForm = `<div class="container">
                        <form id="empFormSubmit">
                            <div class="mb-3 mt-3">
@@ -34,8 +30,6 @@ function displayReimbursementForm(){
 //this is a onclick event, when the Submit Request button is pressed, it calls this method and enters what was passed into the form as a post request to the database and a new record is created in the reibursement table in our database
 function submitRequest() {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     var empId = sessionStorage.getItem('currentUser');
 
     let submitRequest = {
@@ -55,32 +49,6 @@ function submitRequest() {
 }
 //When View Reimbursement status is selected in the navbar, the employee id is pulled from the session storage and get request is ran to the reimbursement table, fetching the reimbursements that match the empid
 function displayEmployeeRequest() {
-=======
-=======
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
-function submitRequest(){
-
-       var empId = sessionStorage.getItem('currentUser');
-
-       let submitRequest = {
-       reimbursementId: 0,
-       employeeId: document.getElementById("eID").value=empId,
-       managerId: document.getElementById("mID").value,
-       status: 0,
-       amount: document.getElementById("amount").value,
-       reason: document.getElementById("reason").value,
-   }
-   fetch("http://localhost:7474/reimbursement", {
-       method: 'post',
-       body: JSON.stringify(submitRequest) // converts JS object to JSON 
-   })
-   document.getElementById("empFormSubmit").reset();
-
-}
-
-
- function displayEmployeeRequest(){
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
     var eID = sessionStorage.getItem('currentUser');
     fetch("http://localhost:7474/reimbursement/" + eID)
         .then(response => response.json())
@@ -109,7 +77,6 @@ function submitRequest(){
         })
         .catch(error => console.log(error));
 }
-<<<<<<< HEAD
 //When view Profile is pressed in the navbar, a form populates the content div and the fields are filled automatically with user info that was stored as session storage
 function displayUserProfile() {
     var eID = sessionStorage.getItem('currentUser');
@@ -121,27 +88,6 @@ function displayUserProfile() {
         .then(response => response.json())
         .then(responseJson => {
             let userForm = `<div class="container">
-=======
- 
-
-
-                function displayUserProfile(){
-
-                    var eID = sessionStorage.getItem('currentUser');
-                    var firstName = sessionStorage.getItem('currentfName');
-                    var lastName = sessionStorage.getItem('currentlName');
-                    var email = sessionStorage.getItem('currentemail');
-                    var userName = sessionStorage.getItem('currentuName');
-
-                    fetch("http://localhost:7474/employees/"+eID)
-                    .then(response => response.json())
-                    .then(responseJson => {
-
-                        let userForm   =  `<div class="container">
-<<<<<<< HEAD
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
-=======
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
                                 <form>
                                     <div class="mb-3 mt-3">
                                     <label for="eID" class="form-label">Employee ID:</label>
@@ -166,8 +112,6 @@ function displayUserProfile() {
                                         <button type="button" class="btn btn-primary" onclick="updateProfile()">Update Profile</button>
                                 </form>
                             </div>`;
-<<<<<<< HEAD
-<<<<<<< HEAD
             document.getElementById("content").innerHTML = userForm;
             document.getElementById("Firstname").value = firstName;
             document.getElementById("Lastname").value = lastName;
@@ -194,42 +138,3 @@ function updateProfile() {
 function clearSession() {
     sessionStorage.clear;
 }
-=======
-=======
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
-
-                        
-                    document.getElementById("content").innerHTML = userForm;
-                    document.getElementById("Firstname").value=firstName;
-                    document.getElementById("Lastname").value=lastName;
-                    document.getElementById("Email").value=email;
-                    document.getElementById("Username").value=userName;
-                    })
-                }
-
-
-                function updateProfile(){
-
-                    var empId = sessionStorage.getItem('currentUser');  
-                    let updateRequest = {
-                        employeeId: document.getElementById("empID").value=empId,
-                        firstName: document.getElementById("Firstname").value,
-                        lastName: document.getElementById("Lastname").value,
-                        email: document.getElementById("Email").value,
-                        userName: document.getElementById("Username").value,
-                    }
-                    fetch("http://localhost:7474/employees/profile", {
-                        method: 'post',
-                        body: JSON.stringify(updateRequest) // converts JS object to JSON 
-                    })
-                    
-                 }
-
-                 function clearSession(){
-                    sessionStorage.clear;
-<<<<<<< HEAD
-                 }
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
-=======
-                 }
->>>>>>> d13c78013ecbea86e30a9c9e172138436c9ada5f
