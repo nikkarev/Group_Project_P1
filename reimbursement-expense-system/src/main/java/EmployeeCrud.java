@@ -11,57 +11,45 @@ import service.ReimbursementServiceImpl;
 public class EmployeeCrud {
 
 	public static void main(String[] args) {
-
 		EmployeeService employeeService = new EmployeeServiceImpl();
 		ReimbursementService reimbursementService = new ReimbursementServiceImpl();
-
+		// initiates the javalin server on port 7474
 		Javalin server = Javalin.create((config) -> config.enableCorsForAllOrigins());
 		server.start(7474);
 
-		// GET ALL EMPLOYEES
+		// end point for GET ALL EMPLOYEES
 		server.get("/employees", (ctx) -> {
-			// here we contact service, service contacts dao
-			// allEmployees contains all the employees fetched from the DB
 			List<EmployeePojo> allEmployees = employeeService.getAllEmployees();
-
-			// now put the books in the response body, it has to converted to json format,
-			// the ctx.json() will take care of the above 2 and sends back the response to
-			// the client/consumer
 			ctx.json(allEmployees);
 		});
 
-
-		// endpoint for login validation
+		// end point for login validation
 		server.post("/employees/login", (ctx) -> {
 			EmployeePojo loginEmpPojo = ctx.bodyAsClass(EmployeePojo.class);
 			ctx.json(employeeService.login(loginEmpPojo));
 		});
 
-
 		// post request to update employee info
 		server.get("/employees/{eID}", (ctx) -> {
-			
-
 			EmployeePojo returnEmpProfilePojo = employeeService.viewInfo((Integer.parseInt(ctx.pathParam("eID"))));
-			ctx.json(returnEmpProfilePojo); 
+			ctx.json(returnEmpProfilePojo);
 		});
-		
-		
+
 		// update employee profile info
 		server.post("/employees/profile", (ctx) -> {
 			EmployeePojo updateEmpProfilePojo = ctx.bodyAsClass(EmployeePojo.class);
 			ctx.json(employeeService.updateInfo(updateEmpProfilePojo));
 		});
-		
 
-		// **************************************************REIMBURSEMENT CRUD OPERATION***************************************************
+		// **************************************************REIMBURSEMENT CRUD
+		// OPERATION***************************************************
 
 		// Get All Reimbursement Request
 		server.get("/reimbursement", (ctx) -> {
 			List<ReimbursementPojo> allRequests = reimbursementService.viewAllRequests();
 			ctx.json(allRequests);
 		});
-		//Get all resolved requests
+		// Get all resolved requests
 		server.get("/resolvedreimbursement", (ctx) -> {
 			List<ReimbursementPojo> allResolvedRequests = reimbursementService.viewAllResolvedRequests();
 			ctx.json(allResolvedRequests);
@@ -75,21 +63,20 @@ public class EmployeeCrud {
 			ReimbursementPojo returnBookPojo = reimbursementService.submitRequest(newReimbursementPojo);
 			ctx.json(returnBookPojo);
 		});
-		
-server.post("/reimbursement/approve", (ctx) -> {
-			
+		//end point for change a reimbursement status 
+		server.post("/reimbursement/changestatus", (ctx) -> {
+
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
-			
-			
+
 			ReimbursementPojo updateReimbursementPojo = reimbursementService.changeRequestStatus(newReimbursementPojo);
-			
-			
+
 			ctx.json(updateReimbursementPojo);
 		});
 
-		// endpoint for viewing specific employee reimbursement request
+		// end point for viewing specific employee reimbursement request
 		server.get("/reimbursement/{eID}", (ctx) -> {
-			List<ReimbursementPojo> employeeRequestPojo = reimbursementService.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("eID")));
+			List<ReimbursementPojo> employeeRequestPojo = reimbursementService
+					.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("eID")));
 			ctx.json(employeeRequestPojo);
 		});
 	}

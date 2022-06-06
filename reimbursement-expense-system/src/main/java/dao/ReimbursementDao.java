@@ -7,17 +7,23 @@ import model.ReimbursementPojo;
 
 public interface ReimbursementDao {
 
-	//employee submits a request
+	// employee submits a request
 	ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
-	//employee views their pending, approved and denied requests/manager views a specific employees requests
+
+	// employee views their pending, approved and denied requests/manager views a
+	// specific employees requests
 	List<ReimbursementPojo> viewEmployeeRequests(int employeeId) throws ApplicationException;
-	//manager views a specific employees requests
+
+	// manager views a specific employees requests
 	List<ReimbursementPojo> managerViewEmployeeRequests(int employeeId) throws ApplicationException;
-	//manager views all pending requests
+
+	// manager views all pending requests
 	List<ReimbursementPojo> viewAllRequests() throws ApplicationException;
-	//manager approves or denies a request
+
+	// manager approves or denies a request
 	ReimbursementPojo changeRequestStatus(ReimbursementPojo reimbursementPojo) throws ApplicationException;
-	//manager view resolved requests
+
+	// manager view resolved requests
 	List<ReimbursementPojo> viewAllResolvedRequests() throws ApplicationException;
 
 }
