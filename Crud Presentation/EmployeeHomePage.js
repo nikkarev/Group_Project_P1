@@ -45,7 +45,7 @@ function submitRequest() {
         body: JSON.stringify(submitRequest) // converts JS object to JSON 
     })
     document.getElementById("empFormSubmit").reset();
-
+    alert("Request submitted!");
 }
 //When View Reimbursement status is selected in the navbar, the employee id is pulled from the session storage and get request is ran to the reimbursement table, fetching the reimbursements that match the empid
 function displayEmployeeRequest() {
