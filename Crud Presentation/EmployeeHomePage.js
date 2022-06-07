@@ -140,7 +140,7 @@ function clearSession() {
     sessionStorage.clear;
 }
 
-
+// When the profile is updated with the Submit profile function, the alertProfileUpdate function runs along with the method to alert the user about successful profile update.
 function alertProfileUpdate() {
 
     
