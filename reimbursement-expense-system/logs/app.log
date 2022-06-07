@@ -4033,4 +4033,27 @@
 2022-06-06 19:20:13,571 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Entered viewEmployeeRequests() in Dao.
 2022-06-06 19:20:13,603 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Exited viewEmployeeRequests() in Dao.
 2022-06-06 19:20:13,603 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Exited viewEmployeeRequests() in service.
+<<<<<<< HEAD
 >>>>>>> a297e50 (pulling changes)
+=======
+2022-06-06 19:35:39,844 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered login() in service.
+2022-06-06 19:35:41,187 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited login() in service.
+2022-06-06 19:35:50,786 INFO s.EmployeeServiceImpl [JettyServerThreadPool-16] Entered login() in service.
+2022-06-06 19:35:50,821 INFO s.EmployeeServiceImpl [JettyServerThreadPool-16] Exited login() in service.
+2022-06-06 19:35:54,871 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered viewInfo() in service.
+2022-06-06 19:35:54,872 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Entered viewInfo() in Dao.
+2022-06-06 19:35:54,899 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Exited viewInfo() in Dao.
+2022-06-06 19:35:54,903 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Exited viewInfo() in service.
+2022-06-06 19:37:58,491 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewEmployeeRequests() in service.
+2022-06-06 19:37:58,515 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Entered viewEmployeeRequests() in Dao.
+2022-06-06 19:37:58,558 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewEmployeeRequests() in Dao.
+2022-06-06 19:37:58,558 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Exited viewEmployeeRequests() in service.
+2022-06-06 19:38:03,282 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Entered viewInfo() in service.
+2022-06-06 19:38:03,283 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-15] Entered viewInfo() in Dao.
+2022-06-06 19:38:03,312 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-15] Exited viewInfo() in Dao.
+2022-06-06 19:38:03,312 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Exited viewInfo() in service.
+2022-06-06 19:38:13,787 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Entered viewEmployeeRequests() in service.
+2022-06-06 19:38:13,788 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Entered viewEmployeeRequests() in Dao.
+2022-06-06 19:38:13,816 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Exited viewEmployeeRequests() in Dao.
+2022-06-06 19:38:13,817 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Exited viewEmployeeRequests() in service.
+>>>>>>> 6ad9081 (pulling changes)

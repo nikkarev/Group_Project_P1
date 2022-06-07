@@ -128,7 +128,7 @@ nav.navbar ul li a:hover:after {
   opacity: 1;
 }
 
-button {
+button.btn {
   display:block;
   padding:0.3em 1.2em;
   margin:0 0.1em 0.1em 0;
@@ -138,12 +138,11 @@ button {
   text-decoration:none;
   font-family:'Roboto',sans-serif;
   font-weight:400;
-  background-color: aqua;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
   text-align:center;
   transition: all 0.2s;
 }
 
-button:hover {
+button.btn:hover {
   border-color: rgba(255,255,255,1);
 }

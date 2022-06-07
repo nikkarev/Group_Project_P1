@@ -15,11 +15,11 @@ import model.EmployeePojo;
 import model.ReimbursementPojo;
 
 public class EmployeeServiceImpl implements EmployeeService {
-	
+
 	private static final Logger LOG = LogManager.getLogger(EmployeeServiceImpl.class);
-	
+
 	EmployeeDao employeeDao;
-	
+
 	public EmployeeServiceImpl() {
 		this.employeeDao = new EmployeeDaoImpl();
 	}
@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		LOG.info("Exited updateInfo() in service.");
 		return returnEmployeePojo;
 	}
-	
+
 	@Override
 	public List<EmployeePojo> getAllEmployees() throws ApplicationException {
 		LOG.info("Entered getAllEmployees() in service.");	
@@ -64,7 +64,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		LOG.info("Exited register() in service.");
 		return registerPojo;
 	}
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> 6ad9081 (pulling changes)
 
 }
