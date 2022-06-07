@@ -63,11 +63,11 @@ function viewAllRequests() {
                                     <td id="reason">${reimbursement.reason}</td>
                                     <td><button 
                                             type="button" 
-                                            class="btn btn-success"
+                                            class="btn1"
                                             onclick="approveRequestStatus(${reimbursement.reimbursementId})">Approve</button></td>
                                     <td><button 
                                             type="button" 
-                                            class="btn btn-danger"
+                                            class="btn2"
                                             onclick="denyRequestStatus(${reimbursement.reimbursementId})">Deny</button></td>
                                     </tr>`;
             }
@@ -161,7 +161,7 @@ function displayReimbursementsForEmployee() {
                                <label for="eID" class="form-label">Employee ID:</label>
                                <input type="text" class="form-control" id="eID" placeholder="Enter employee Id" name="employeeId">
                             </div>
-                            <button type="button" class="btn btn-primary" onclick="displayEmployeeRequest(document.getElementById('eID').value)">Submit</button>
+                            <button type="button" class="btn3 btn-primary" onclick="displayEmployeeRequest(document.getElementById('eID').value)">Submit</button>
                         </form>
                     </div>
                            `;

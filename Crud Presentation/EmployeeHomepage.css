@@ -26,7 +26,6 @@ table{
 	width: 100%;
 }
 
-
 nav {
   width: 80%;
   margin: 0 auto;
@@ -126,4 +125,24 @@ nav.navbar ul li a:hover:after {
   -webkit-animation: fill 1s forwards;
   -moz-animation: fill 1s forwards;
   opacity: 1;
+}
+
+button.btn {
+  display:block;
+  padding:0.3em 1.2em;
+  margin:0 0.1em 0.1em 0;
+  border:0.16em solid rgba(255,255,255,0);
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  text-align:center;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+button.btn:hover {
+  border-color: rgba(255,255,255,1);
 }
