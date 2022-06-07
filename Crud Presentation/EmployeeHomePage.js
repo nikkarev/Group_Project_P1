@@ -1,5 +1,5 @@
 
-//When submit a request is clicked in the navbar, this form populates the content and an employee can enter there manager id, ammount, and reason for a reimbursement. The empid field is populated automatically from the current loged in users session storage
+//When submit a request is clicked in the navbar, this form populates the content and an employee can enter there manager id, amount, and reason for a reimbursement. The empid field is populated automatically from the current loged in users session storage
 function displayReimbursementForm() {
     let reimbursementForm = `<div class="container">
                        <form id="empFormSubmit">
@@ -109,7 +109,7 @@ function displayUserProfile() {
                                         <label for="Username" class="form-label">Username:</label>
                                         <input type="text" class="form-control" style="width:400px" id="Username" placeholder="username" name="userName"> 
                                     </div>
-                                        <button type="button" class="btn btn-primary" onclick="updateProfile()">Update Profile</button>
+                                        <button type="button" class="btn btn-primary" onclick="updateProfile();alertProfileUpdate();">Update Profile</button>
                                 </form>
                             </div>`;
             document.getElementById("content").innerHTML = userForm;
@@ -138,4 +138,17 @@ function updateProfile() {
 //When Logout is selected in the navbar, it will run this method, clearing the sessionstorage, allowing for a different user to login and their information to be stored in the session storage
 function clearSession() {
     sessionStorage.clear;
+}
+
+// When the profile is updated with the Submit profile function, the alertProfileUpdate function runs along with the method to alert the user about successful profile update.
+function alertProfileUpdate() {
+
+    
+  if (confirm("Profile Updated Successfully!")) {
+    
+  } else {
+    ("Profile not Updated")
+  }
+
+
 }
