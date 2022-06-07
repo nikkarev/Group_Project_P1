@@ -8,6 +8,7 @@ Database is hosted on AWS RDS with Postgres.
 
 Technologies used are:
 
+* Java
 * Javalin
 * AWS RDS
 * Postgres
