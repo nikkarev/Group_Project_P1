@@ -26,7 +26,6 @@ table{
 	width: 100%;
 }
 
-
 nav {
   width: 80%;
   margin: 0 auto;
@@ -141,6 +140,7 @@ button.btn {
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
   text-align:center;
   transition: all 0.2s;
+  text-transform: uppercase;
 }
 
 button.btn:hover {
