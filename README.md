@@ -7,14 +7,14 @@ Sample Data in provided in the DBScript along with the Table in database.
 Database is hosted on AWS RDS with Postgres.
 
 Technologies used are:
-*javascript
+
 * Javalin
-Markup : * AWS RDS
-Markup : * Postgres
-Markup : * JavaScript
-Markup : * HTML/CSS
-Markup : * Junit
-Markup : * Logging
-Markup : * Mockito
-Markup : * Maven
-Markup : * BootStrap
+* AWS RDS
+* Postgres
+* JavaScript
+* HTML/CSS
+* Junit
+* Logging
+* Mockito
+* Maven
+* BootStrap
