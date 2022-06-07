@@ -106,25 +106,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 
-<<<<<<< HEAD
-	
-	public EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException {
-		
-=======
-
 	public EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException {
 
->>>>>>> 6ad9081 (pulling changes)
 		LOG.info("Entered register() in Dao.");
 		try {
 			Connection conn = DBUtil.makeConnection();
 			Statement stmt = conn.createStatement();
 			String query = "INSERT INTO employee (first_name, last_name, email, user_name, password, manager_type, manager_id) VALUES ('"+employeePojo.getFirstName()+ "','" + employeePojo.getLastName() + "','" +
-<<<<<<< HEAD
 			employeePojo.getEmail() + "','" + employeePojo.getUserName() + "','" + employeePojo.getPassword() + "','" + employeePojo.isManagerType() + "','" + employeePojo.getManagerId() + "') returning employee_id";
-=======
-					employeePojo.getEmail() + "','" + employeePojo.getUserName() + "','" + employeePojo.getPassword() + "','" + employeePojo.isManagerType() + "','" + employeePojo.getManagerId() + "') returning employee_id";
->>>>>>> 6ad9081 (pulling changes)
 			ResultSet rs = stmt.executeQuery(query);
 			rs.next();
 			employeePojo.setEmployeeId(rs.getInt(1));
@@ -134,9 +123,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		LOG.info("Exited submitRequest() in Dao.");
 		return employeePojo;
 	}
-<<<<<<< HEAD
-	}
 
-=======
 }
->>>>>>> 6ad9081 (pulling changes)
+

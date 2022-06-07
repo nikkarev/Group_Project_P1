@@ -22,7 +22,4 @@ public interface EmployeeDao {
 	//Register New User
 	EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException;
 
-	//Register New User
-	EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException;
-
 }
