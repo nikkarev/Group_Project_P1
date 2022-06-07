@@ -7,7 +7,8 @@ Sample Data in provided in the DBScript along with the Table in database.
 Database is hosted on AWS RDS with Postgres.
 
 Technologies used are:
-Markup : * Java
+Markup : ```javascript
+         ```
 Markup : * Javalin
 Markup : * AWS RDS
 Markup : * Postgres
