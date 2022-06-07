@@ -34,10 +34,10 @@ public class EmployeeServiceTest {
 	
 	
 	@Test
-	public void testViewInfo() {
+	public void testViewInfo() throws ApplicationException {
 		EmployeeService employeeService = new EmployeeServiceImpl();
 
-		EmployeePojo expectedPojo = new EmployeePojo(2, 1, "charlie", "chaplin", "bradpotter@gmail.com", "charlie123", "catsarecool789", false);
+		EmployeePojo expectedPojo = employeeService.viewInfo(2);
 		EmployeePojo actualPojo = null;
 		try {
 			// since there is no mockito, in the next line the service layer will call the
@@ -53,16 +53,11 @@ public class EmployeeServiceTest {
 	}
 	
 	@Test
-	public void testGetAllEmployees() {
+	public void testGetAllEmployees() throws ApplicationException {
 		EmployeeService employeeService = new EmployeeServiceImpl();
 		
-		List<EmployeePojo> expectedEmployees = new ArrayList<EmployeePojo>();
-		EmployeePojo bradPojo = new EmployeePojo(2, 1, "charlie", "chaplin", "bradpotter@gmail.com", "charlie123", "catsarecool789", false);
-		EmployeePojo harryPojo = new EmployeePojo(3, 1, "johnny", "depp", "", "", "turtlesaresweet987", false);
-		EmployeePojo georgePojo = new EmployeePojo(4, 1, "George", "Jefferson", "georgejefferson@gmail.com", "gjefferson123", "birdistheword654", false);
-		expectedEmployees.add(bradPojo);
-		expectedEmployees.add(harryPojo);
-		expectedEmployees.add(georgePojo);
+		List<EmployeePojo> expectedEmployees = employeeService.getAllEmployees();
+		
 		List<EmployeePojo> actualEmployees = null;
 		try {
 			actualEmployees = employeeService.getAllEmployees();

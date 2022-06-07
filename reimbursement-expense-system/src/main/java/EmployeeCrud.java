@@ -77,5 +77,13 @@ public class EmployeeCrud {
 					.viewEmployeeRequests(Integer.parseInt(ctx.pathParam("eID")));
 			ctx.json(employeeRequestPojo);
 		});
+		
+		
+		//Register New User
+		server.post("/employees/register", (ctx) -> {
+			EmployeePojo newEmployeePojo = ctx.bodyAsClass(EmployeePojo.class);
+			EmployeePojo registerPojo = employeeService.register(newEmployeePojo);
+			ctx.json(registerPojo);
+		});
 	}
 }
