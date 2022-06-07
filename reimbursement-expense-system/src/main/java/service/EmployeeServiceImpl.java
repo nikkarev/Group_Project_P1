@@ -64,11 +64,5 @@ public class EmployeeServiceImpl implements EmployeeService {
 		LOG.info("Exited register() in service.");
 		return registerPojo;
 	}
-<<<<<<< HEAD
-	
-	
-=======
-
->>>>>>> 6ad9081 (pulling changes)
 
 }

@@ -17,6 +17,5 @@ public interface EmployeeService {
 	
 	EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException;
 
-	EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException;
 
 }
