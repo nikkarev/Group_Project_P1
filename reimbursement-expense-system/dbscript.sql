@@ -17,3 +17,10 @@ CREATE TABLE reimbursement(
 	amount NUMERIC (6,2),
 	reason VARCHAR(255)
 );
+
+*************************************************************************INSERT QUERIES********************************************************************************************************************
+
+INSERT INTO employee(manager_id, first_name, last_name, email, user_name, password, manager_type) VALUES (1,'john','smith','johnsmith@gmail.com','johnsmith','dogsaregreat456','t');
+INSERT INTO employee(manager_id, first_name, last_name, email, user_name, password, manager_type) VALUES (1,'brad','potter','bradpotter@gmail.com','bradpotter','catsarecool789','f');
+INSERT INTO employee(manager_id, first_name, last_name, email, user_name, password, manager_type) VALUES (1,'harry','cooper','harrycooper@gmail.com','harrycooper','turtlesaresweet987','f');
+INSERT INTO employee(manager_id, first_name, last_name, email, user_name, password, manager_type) VALUES (1,'john','wick','johnwick@gmail.com','babayaga','withapencil','f');
