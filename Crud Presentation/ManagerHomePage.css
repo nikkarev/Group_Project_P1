@@ -135,6 +135,7 @@ a.nav-link1 {
   position: fixed;
 }
 
+nav.navbar ul li a:after {
     position: absolute;
     bottom: 0;
     left: 0;
