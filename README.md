@@ -14,7 +14,7 @@ Technologies used are:
 * JavaScript
 * HTML/CSS
 * Junit
-* Logging
+* Logging (Log4j)
 * Mockito
 * Maven
-* BootStrap
+* Bootstrap
