@@ -18,5 +18,8 @@ public interface EmployeeDao {
 
 	// manager views all employee info
 	List<EmployeePojo> getAllEmployees() throws ApplicationException;
+	
+	//Register New User
+	EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException;
 
 }

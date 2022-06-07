@@ -5,19 +5,19 @@ function displayReimbursementForm() {
                        <form id="empFormSubmit">
                            <div class="mb-3 mt-3">
                                <label for="eID" class="form-label">Employee ID:</label>
-                               <input type="text" class="form-control" id="eID"  name="employeeId">
+                               <input type="text" class="form-control" style="width:500px"id="eID"  name="employeeId" disabled>
                            </div>
                            <div class="mb-3 mt-3">
                                <label for="mID" class="form-label">Manager ID:</label>
-                               <input type="text" class="form-control" id="mID" placeholder="Enter manager Id" name="managerId">
+                               <input type="text" class="form-control" style="width:500px" id="mID" placeholder="Enter manager ID" name="managerId">
                            </div>
                            <div class="mb-3 mt-3">
                                <label for="amount" class="form-label">Amount</label>
-                               <input type="text" class="form-control" id="amount" placeholder="Amount" name="amount">
+                               <input type="text" class="form-control" style="width:500px"id="amount" placeholder="Amount" name="amount">
                            </div>
                            <div class="mb-3 mt-3">
                                <label for="reason" class="form-label">Reason:</label>
-                               <input type="text" class="form-control" id="reason" placeholder="Reason" name="Reason">
+                               <input type="text" class="form-control" style="width:500px" id="reason" placeholder="Reason" name="Reason">
                            </div>
                            <button type="button" class="btn btn-primary" onclick="submitRequest()">Submit Request</button>
                        </form>
@@ -90,8 +90,8 @@ function displayUserProfile() {
             let userForm = `<div class="container">
                                 <form>
                                     <div class="mb-3 mt-3">
-                                    <label for="eID" class="form-label">Employee ID:</label>
-                                    <input type="text" class="form-control" style="width:400px" id="empID"  name="employeeId">
+                                    <label for="empID" class="form-label">Employee ID:</label>
+                                    <input type="text" class="form-control" style="width:400px" id="empID"  name="employeeId" disabled>
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="FirstName" class="form-label">Firstname:</label>
@@ -113,6 +113,7 @@ function displayUserProfile() {
                                 </form>
                             </div>`;
             document.getElementById("content").innerHTML = userForm;
+            document.getElementById("empID").value = eID;
             document.getElementById("Firstname").value = firstName;
             document.getElementById("Lastname").value = lastName;
             document.getElementById("Email").value = email;
@@ -121,9 +122,9 @@ function displayUserProfile() {
 }
 //When the Update profile onclick event occurs, it will create a post request to the database that will run a update request to the database that will update the current users info in the employee table
 function updateProfile() {
-    var empId = sessionStorage.getItem('currentUser');
+    var eID = sessionStorage.getItem('currentUser');
     let updateRequest = {
-        employeeId: document.getElementById("empID").value = empId,
+        employeeId: document.getElementById("empID").value = eID,
         firstName: document.getElementById("Firstname").value,
         lastName: document.getElementById("Lastname").value,
         email: document.getElementById("Email").value,

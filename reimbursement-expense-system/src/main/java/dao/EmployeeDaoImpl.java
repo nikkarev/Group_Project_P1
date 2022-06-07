@@ -105,4 +105,24 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return allEmployees;
 	}
 
-}
+
+	
+	public EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException {
+		
+		LOG.info("Entered register() in Dao.");
+		try {
+			Connection conn = DBUtil.makeConnection();
+			Statement stmt = conn.createStatement();
+			String query = "INSERT INTO employee (first_name, last_name, email, user_name, password, manager_type, manager_id) VALUES ('"+employeePojo.getFirstName()+ "','" + employeePojo.getLastName() + "','" +
+			employeePojo.getEmail() + "','" + employeePojo.getUserName() + "','" + employeePojo.getPassword() + "','" + employeePojo.isManagerType() + "','" + employeePojo.getManagerId() + "') returning employee_id";
+			ResultSet rs = stmt.executeQuery(query);
+			rs.next();
+			employeePojo.setEmployeeId(rs.getInt(1));
+		} catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		LOG.info("Exited submitRequest() in Dao.");
+		return employeePojo;
+	}
+	}
+
