@@ -105,8 +105,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return allEmployees;
 	}
 
-	public EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException {
 
+	public EmployeePojo register(EmployeePojo employeePojo) throws ApplicationException {
 
 		LOG.info("Entered register() in Dao.");
 		try {
