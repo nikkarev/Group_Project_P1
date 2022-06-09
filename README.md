@@ -24,3 +24,4 @@ Technologies used are:
 * Goutham Seeman
 * Isaac Suttle
 * Fozeya-Nikka Alviar
+* Akshay Kumar
